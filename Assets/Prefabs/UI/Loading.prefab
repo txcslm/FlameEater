@@ -69,7 +69,7 @@ MonoBehaviour:
   m_text: Loading...
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6751a7aa35ee25f4cbe756cb150d2e65, type: 2}
-  m_sharedMaterial: {fileID: 6638975891267897355, guid: 6751a7aa35ee25f4cbe756cb150d2e65, type: 2}
+  m_sharedMaterial: {fileID: -4412169926514247382, guid: 6751a7aa35ee25f4cbe756cb150d2e65, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -247,7 +247,7 @@ RectTransform:
   m_Children:
   - {fileID: 9155872495305963857}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

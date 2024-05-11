@@ -7,7 +7,7 @@ using Utility;
 
 namespace Services.LoadLevels
 {
-	public class UnityLoadSceneService : ILoadSceneService
+	public class  UnityLoadSceneService : ILoadSceneService
 	{
 		private readonly ICoroutineRunner _coroutineRunner;
 
@@ -32,10 +32,10 @@ namespace Services.LoadLevels
 			
 			Debug.Log(nameof(asyncOperation));
 
-			while (asyncOperation is { isDone: false })
-			{
+			while (asyncOperation!.isDone == false)
 				yield return null;
-			}
+			
+			sceneLoaded?.Invoke();
 		}
 	}
 }
