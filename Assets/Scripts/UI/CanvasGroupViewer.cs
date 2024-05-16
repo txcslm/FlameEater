@@ -1,7 +1,5 @@
-using TMPro;
 using UI.Interfaces;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace UI
 {

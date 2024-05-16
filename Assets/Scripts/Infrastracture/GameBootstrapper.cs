@@ -6,6 +6,7 @@ using Utility;
 public class GameBootstrapper : MonoBehaviour, ICoroutineRunner
 {
 	[SerializeField] private CanvasGroupViewer _canvasGroupViewer;
+	
 	private Game _game;
 	
 	private void Awake()
