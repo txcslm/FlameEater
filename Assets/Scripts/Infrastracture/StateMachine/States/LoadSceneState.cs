@@ -23,14 +23,12 @@ namespace StateMachine
 
 		public void Enter()
 		{
-			Debug.Log("Entering LoadSceneState");
 			_stateViewer.Enable();
 			_loadSceneService.Load(MainMenu, Exit);
 		}
 
 		public void Exit()
 		{
-			Debug.Log("Exiting LoadSceneState");
 			_stateViewer.Disable();
 			_nextState.Enter();
 		}
