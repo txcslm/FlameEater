@@ -1,4 +1,0 @@
-repository "FlameEater@unity_3E014BC44F8B78E45989@cloud"
-  path "/"
-    br "/main"
-    co "/main"

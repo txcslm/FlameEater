@@ -7,6 +7,7 @@ namespace StateMachine
 	{
 		public void Enter()
 		{
+			Debug.LogWarning("Entering GameBootstrapState");
 		}
 
 		public void Exit()

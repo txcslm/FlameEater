@@ -6,9 +6,13 @@ public class Game
 {
 	private readonly GameStateMachine _stateMachine;
 
-	public Game(CanvasGroupViewer canvasGroupViewer, ICoroutineRunner coroutineRunner) =>
+	public Game(CanvasGroupViewer canvasGroupViewer, ICoroutineRunner coroutineRunner)
+	{
 		_stateMachine = new GameStateMachine(canvasGroupViewer, coroutineRunner);
+	}
 
-	public void Start() =>
+	public void Start()
+	{
 		_stateMachine.Start();
+	}
 }
