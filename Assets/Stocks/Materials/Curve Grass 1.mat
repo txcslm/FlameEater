@@ -10,14 +10,14 @@ Material:
   m_Name: Curve Grass 1
   m_Shader: {fileID: -6465566751694194690, guid: c200d35b13a12fe4e8783ff36f594bf9, type: 3}
   m_Parent: {fileID: 2100000, guid: 09b4dcd72a13d5f498b9415f7745790a, type: 2}
-  m_ModifiedSerializedProperties: 0
+  m_ModifiedSerializedProperties: 30
   m_ValidKeywords:
   - ENABLE_BENDING_PLANET
   m_InvalidKeywords: []
-  m_LightmapFlags: 4
+  m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 2999
   stringTagMap: {}
   disabledShaderPasses: []
   m_LockedProperties: 
@@ -29,8 +29,13 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
-    m_Floats: []
-    m_Colors: []
+    m_Floats:
+    - ENABLE_BENDING: 0
+    - _CurveStrength: 0.005
+    - _QueueControl: 0
+    - _QueueOffset: -1
+    m_Colors:
+    - _Tiling: {r: 2, g: 2, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &8981361295746995383
 MonoBehaviour:

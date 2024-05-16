@@ -168,7 +168,7 @@ Material:
     - ENABLE_BENDING_PLANET: 1
     - _BUILTIN_QueueControl: 0
     - _BUILTIN_QueueOffset: 0
-    - _CurveStrength: 0.0065
+    - _CurveStrength: 0.005
     - _Cutoff: 0.3
     - _QueueControl: 0
     - _QueueOffset: 0

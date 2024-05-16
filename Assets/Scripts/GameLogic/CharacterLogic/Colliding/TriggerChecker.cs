@@ -8,10 +8,8 @@ namespace GameLogic.CharacterLogic.Colliding
     {
         private void OnTriggerEnter(Collider other)
         {
-            if (other.TryGetComponent(out ITrigger trigger))
-            {
-                Debug.Log($"{gameObject.name} entered {other.gameObject.name}");
-            }
+            if (other.TryGetComponent(out IInteractable trigger))
+                trigger.Interact();
         }
     }
 }

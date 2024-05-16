@@ -23,7 +23,7 @@ namespace Shaders
         {
             _settings = settings;
             renderPassEvent = settings.renderPassEvent;
-            _material = CoreUtils.CreateEngineMaterial("Hidden/Pixelize");
+            _material = CoreUtils.CreateEngineMaterial("Hidden/Pixelation");
         }
 
         public override void OnCameraSetup(CommandBuffer cmd, ref RenderingData renderingData)
@@ -34,6 +34,7 @@ namespace Shaders
 
             _pixelScreenHeight = _settings.screenHeight;
             _pixelScreenWidth = (int)(_pixelScreenHeight * renderingData.cameraData.camera.aspect + 0.5f);
+            
 
             _material.SetVector(BlockCount, new Vector2(_pixelScreenWidth, _pixelScreenHeight));
             _material.SetVector(BlockSize, new Vector2(1.0f / _pixelScreenWidth, 1.0f / _pixelScreenHeight));
@@ -51,7 +52,6 @@ namespace Shaders
             CommandBuffer cmd = CommandBufferPool.Get();
             using (new ProfilingScope(cmd, new ProfilingSampler("Pixelize Pass")))
             {
-                // Assuming colorBuffer and pixelBuffer are of type RenderTargetIdentifier
                 cmd.Blit(_colorBuffer, _pixelBuffer, _material, 0);
                 cmd.Blit(_pixelBuffer, _colorBuffer);
             }

@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: M_VFX_Fire_01
-  m_Shader: {fileID: 4800000, guid: b8a99704b1204314e816971e63a2a521, type: 3}
+  m_Shader: {fileID: 4800000, guid: 2ce4c95e7106985488f7f5bb730b3ae5, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -26,6 +26,14 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _ColorGradientMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DistortionMaskTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MaskMoveTexture:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -59,7 +67,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Texture:
-        m_Texture: {fileID: 2800000, guid: e98f402880ccea64fbeab50c8ad0b82a, type: 3}
+        m_Texture: {fileID: 2800000, guid: 1c39f37a030014c4abc1e00881d7f68f, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TextureSample2:
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _texcoord:
@@ -80,6 +92,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - ENABLE_BENDING: 0
+    - ENABLE_BENDING_PLANET: 0
     - _AddPrecomputedVelocity: 1
     - _AlphaCutoff: 0.5
     - _AlphaCutoffEnable: 0
@@ -91,12 +105,15 @@ Material:
     - _Cull1: 2
     - _CullMode: 2
     - _CullModeForward: 2
+    - _CurveStrength: 0.0065
     - _DepthFade: 1
     - _Dissolve: 0
     - _Distortion: 1.5
+    - _DistortionAmount: 1
     - _DistortionEnable: 0
     - _DistortionIntensity: 0
     - _DistortionMask: 0
+    - _DistortionMaskIntensity: 1
     - _DistortionOnly: 0
     - _DoubleSidedEnable: 0
     - _DoubleSidedNormalMode: 2
@@ -104,6 +121,7 @@ Material:
     - _DstBlend: 1
     - _EmissionIntensity: 33
     - _Emissive: 40
+    - _EmissiveIntensity: 1
     - _Emissive_Amount: 10
     - _EnableFogOnTransparent: 1
     - _Global_Speed: 1
@@ -119,6 +137,7 @@ Material:
     - _Mask_Power: 1
     - _Mask_Speed: 0
     - _NoisesMultiply: 1
+    - _NoisesOpacityBoost: 1
     - _NoisesPower: 1
     - _Noises_Multiply: 1
     - _Noises_Power: 1
@@ -127,6 +146,7 @@ Material:
     - _Opacity_DepthDistance: 1
     - _Opacity_DepthFade: 1
     - _Opacity_DepthFade_Intensity: 0.4
+    - _PLANET: 1
     - _Power: 1
     - _QueueControl: 0
     - _QueueOffset: 0
@@ -166,7 +186,9 @@ Material:
     - _ZWrite1: 0
     - __dirty: 0
     m_Colors:
-    - _Color: {r: 0.8490566, g: 0.46470568, b: 0.17221431, a: 0}
+    - _Color: {r: 1, g: 0.7310008, b: 0.37254906, a: 0}
+    - _ColorBottom: {r: 1, g: 0.36956525, b: 0, a: 0}
+    - _ColorTop: {r: 1, g: 0.8254717, b: 0.4764151, a: 0}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
     - _MaskMoveScale: {r: 1, g: 1, b: 0, a: 0}
@@ -187,4 +209,18 @@ Material:
     - _Noise_01_Speed: {r: 0.5, g: 0.5, b: 0, a: 0}
     - _Noise_02_Scale: {r: 1, g: 1, b: 0, a: 0}
     - _Noise_02_Speed: {r: 0, g: 0, b: 0, a: 0}
+    - _Tiling: {r: 1, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
+--- !u!114 &6971349907350199105
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 7
