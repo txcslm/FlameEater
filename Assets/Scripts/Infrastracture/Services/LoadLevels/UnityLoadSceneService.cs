@@ -11,11 +11,14 @@ namespace Services.LoadLevels
 	{
 		private readonly ICoroutineRunner _coroutineRunner;
 
-		public UnityLoadSceneService(ICoroutineRunner coroutineRunner) =>
+		public UnityLoadSceneService(ICoroutineRunner coroutineRunner)
+		{
 			_coroutineRunner = coroutineRunner;
-
-		public void Load(string sceneName, Action sceneLoaded) =>
+		}
+		public void Load(string sceneName, Action sceneLoaded)
+		{
 			_coroutineRunner.StartCoroutine(LoadAsync(sceneName, sceneLoaded));
+		}
 
 		private static IEnumerator LoadAsync(string sceneName, Action sceneLoaded)
 		{
