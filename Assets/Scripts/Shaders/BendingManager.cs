@@ -42,7 +42,7 @@ namespace Shaders
     
     private static void OnBeginCameraRendering(ScriptableRenderContext ctx, Camera cam)
     {
-      cam.cullingMatrix = Matrix4x4.Ortho(-150, 150, -150, 150, 0.01f, 1000) * cam.worldToCameraMatrix;
+      cam.cullingMatrix = Matrix4x4.Ortho(-150, 150, -150, 150, 0.01f, 100) * cam.worldToCameraMatrix;
     }
 
     private static void OnEndCameraRendering (ScriptableRenderContext ctx, Camera cam) =>
