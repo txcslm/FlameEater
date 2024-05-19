@@ -8,7 +8,7 @@ namespace GameLogic.CharacterLogic.Colliding
 {
 	public class Scaler : MonoBehaviour, IInteractable
 	{
-		private const float ScaleIncrement = 2.0f;
+		private const float ScaleValue = 1.2f;
 		
 		[SerializeField] private List<Transform> _particlesTransforms;
 		[Space] [SerializeField] private SphereCollider _collider;
@@ -17,31 +17,42 @@ namespace GameLogic.CharacterLogic.Colliding
 		
 		public void Interact()
 		{
-			Scaling(_scaleTime, ScaleIncrement);
-			ColliderScaling(ScaleIncrement);
+			Scaling(_scaleTime, ScaleValue);
+			ColliderScaling(ScaleValue);
 		}
 
-		private void Scaling(float scaleTime, float scaleIncrement)
+		public void Scaling(float scaleTime, float scaleValue)
 		{
 			foreach (Transform particleTransform in _particlesTransforms)
 			{
 				Vector3 targetScale = new Vector3(
-					particleTransform.localScale.x + scaleIncrement, 
+					particleTransform.localScale.x + scaleValue, 
 					particleTransform.localScale.y,
-					particleTransform.localScale.z + scaleIncrement);
-				
-				particleTransform.DOScale(targetScale, scaleTime).SetEase(Ease.InOutQuad);
+					particleTransform.localScale.z + scaleValue);
+
+				if (particleTransform.localScale.z >= 0)
+				{
+					particleTransform.DOScale(targetScale, scaleTime).SetEase(Ease.InOutQuad);
+				}
+				else
+				{
+					particleTransform.localScale = Vector3.zero;
+				}
 			}
 		}
-		
-		private void ColliderScaling(float scaleIncrement)
+
+		public void ColliderScaling(float scaleValue)
+
 		{
 			const float scalingFactor = 5f;
-			
-			if(_collider == null)
+
+			if (_collider == null)
 				throw new ArgumentNullException(nameof(_collider));
-			
-			_collider.radius += scaleIncrement / scalingFactor;
+
+			if (_collider.radius <= 0)
+				_collider.radius = 0.5f;
+
+			_collider.radius += scaleValue / scalingFactor;
 		}
 	}
 }

@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 1764862259676626306}
   - component: {fileID: 7146838680345088330}
   - component: {fileID: 6821951617619033082}
-  m_Layer: 0
+  - component: {fileID: 5215435433767256859}
+  m_Layer: 7
   m_Name: Wood 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,6 +112,102 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fb5b874265519042ad6e14566f7d0db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!82 &5215435433767256859
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3434478339777366872}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 7eb8b8bc10a33ef43b0bf0e45ebfbf60, type: 2}
+  m_audioClip: {fileID: 8300000, guid: 94bc8546fe222904c9fd6e0438c1b6fc, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 20
+  DopplerLevel: 2
+  MinDistance: 1
+  MaxDistance: 100
+  Pan2D: 0
+  rolloffMode: 2
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &8370979805290109585
 GameObject:
   m_ObjectHideFlags: 0
@@ -123,7 +220,7 @@ GameObject:
   - component: {fileID: 8539595846034128147}
   - component: {fileID: 8383954210992411515}
   - component: {fileID: 8394691077034419161}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: View
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -217,6 +314,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ash
       objectReference: {fileID: 0}
+    - target: {fileID: 51797567090449465, guid: ca85dd726dbdda0489623634e4fe47df, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 1460272393797799787, guid: ca85dd726dbdda0489623634e4fe47df, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.8
@@ -239,7 +340,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1487955042509936287, guid: ca85dd726dbdda0489623634e4fe47df, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -7.44
+      value: -0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1778384324138766325, guid: ca85dd726dbdda0489623634e4fe47df, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1852719842625850068, guid: ca85dd726dbdda0489623634e4fe47df, type: 3}
       propertyPath: m_RootOrder
@@ -293,6 +398,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 2623444555391195560, guid: ca85dd726dbdda0489623634e4fe47df, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4028937342607522109, guid: ca85dd726dbdda0489623634e4fe47df, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 4380113768542668513, guid: ca85dd726dbdda0489623634e4fe47df, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.44
@@ -317,6 +430,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.4
       objectReference: {fileID: 0}
+    - target: {fileID: 5379135365788531842, guid: ca85dd726dbdda0489623634e4fe47df, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6346823959517077771, guid: ca85dd726dbdda0489623634e4fe47df, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1
@@ -328,6 +445,10 @@ PrefabInstance:
     - target: {fileID: 6450058452813941070, guid: ca85dd726dbdda0489623634e4fe47df, type: 3}
       propertyPath: m_Name
       value: Flame
+      objectReference: {fileID: 0}
+    - target: {fileID: 6450058452813941070, guid: ca85dd726dbdda0489623634e4fe47df, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6542723002146097909, guid: ca85dd726dbdda0489623634e4fe47df, type: 3}
       propertyPath: m_LocalPosition.x
@@ -353,9 +474,21 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -0.315
       objectReference: {fileID: 0}
+    - target: {fileID: 7552009822321885724, guid: ca85dd726dbdda0489623634e4fe47df, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7882070830369184110, guid: ca85dd726dbdda0489623634e4fe47df, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 8861138641518999804, guid: ca85dd726dbdda0489623634e4fe47df, type: 3}
       propertyPath: LightsModule.enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8922967425897136872, guid: ca85dd726dbdda0489623634e4fe47df, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
