@@ -21,14 +21,14 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: CloudMaterial
-  m_Shader: {fileID: -6465566751694194690, guid: 629971d10c7d4bf42b59cc5c53b8eb23, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: fc563e2e31aa9c74e9b5b3f9c5f50ca9, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - _PLANET
   m_InvalidKeywords: []
   m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
+  m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
@@ -99,7 +99,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Alpha: 0.39
+    - ENABLE_BENDING: 0
+    - _Alpha: 0.727
     - _AlphaClip: 0
     - _AlphaToMask: 0
     - _Blend: 0
@@ -135,7 +136,7 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 0.047169805, g: 0.047169805, b: 0.047169805, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
     - _Tiling: {r: 1, g: 1, b: 0, a: 0}

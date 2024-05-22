@@ -1,5 +1,6 @@
 using System;
 using GameLogic.CharacterLogic.Colliding;
+using GameLogic.Environments;
 using GameLogic.Interfaces;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -10,32 +11,24 @@ namespace GameLogic.CharacterLogic
 	{
 		[SerializeField] private Transform _flameViewTransform;
 		[SerializeField] private Scaler _scaler;
-		[SerializeField] private ParticleSystem _steam;
-		
-		private void Update()
+		[SerializeField] private Steam _steam;
+		[SerializeField] private AudioSource _audioSource;
+
+		public void Initialize()
 		{
-			if(_flameViewTransform.transform.localScale.x <= 0)
-				Die();
+			_steam = GetComponentInChildren<Steam>();
 		}
-		
 		public void TakeDamage(int damage)
 		{
 			const int damageMultiplier = -2;
-			
+
 			if (damage <= 0)
-				throw new ArgumentOutOfRangeException(nameof(damage));
+				damage = 1;
 			
 			Scaling(_scaler,0.5f, damageMultiplier * damage);
-			PlayDamageAnimation(_steam);
+			_steam.PlaySteam();
 		}
-
-		private static void PlayDamageAnimation(ParticleSystem particleSystem)
-		{
-			if (particleSystem is null)
-				throw new ArgumentNullException(nameof(particleSystem));
-			
-			particleSystem.Play();
-		}
+		
 
 		private static void Scaling(Scaler scaler, float scaleTime, int value)
 		{
@@ -47,11 +40,6 @@ namespace GameLogic.CharacterLogic
 			
 			scaler.Scaling(scaleTime, value);
 			scaler.ColliderScaling(value);
-		}
-		
-		private void Die()
-		{
-			Debug.Log("Character died");
 		}
 	}
 }

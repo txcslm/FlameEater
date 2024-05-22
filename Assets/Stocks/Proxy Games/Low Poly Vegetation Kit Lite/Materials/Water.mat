@@ -17,7 +17,7 @@ Material:
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 3000
   stringTagMap: {}
   disabledShaderPasses: []
   m_LockedProperties: 
@@ -88,6 +88,7 @@ Material:
     m_Floats:
     - ENABLE_BENDING: 0
     - ENABLE_BENDING_PLANET: 1
+    - _Alpha: 1
     - _AlphaClip: 0
     - _AlphaToMask: 0
     - _Blend: 1
@@ -109,9 +110,10 @@ Material:
     - _Metallic: 0
     - _Mode: 3
     - _OcclusionStrength: 1
+    - _PLANET: 0
     - _Parallax: 0.02
-    - _QueueControl: 1
-    - _QueueOffset: -4
+    - _QueueControl: 0
+    - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _Smoothness: 1
     - _SmoothnessTextureChannel: 0
@@ -124,7 +126,7 @@ Material:
     - _ZWrite: 0
     m_Colors:
     - _BaseColor: {r: 0.3190192, g: 0.59368175, b: 0.6320754, a: 0.39215687}
-    - _Color: {r: 0.3190192, g: 0.59368175, b: 0.6320754, a: 0.39215687}
+    - _Color: {r: 1, g: 1, b: 1, a: 0.39215687}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
     - _Tiling: {r: 0.5, g: 0.5, b: 0, a: 0}

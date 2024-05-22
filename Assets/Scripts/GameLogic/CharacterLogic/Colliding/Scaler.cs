@@ -30,14 +30,10 @@ namespace GameLogic.CharacterLogic.Colliding
 					particleTransform.localScale.y,
 					particleTransform.localScale.z + scaleValue);
 
-				if (particleTransform.localScale.z >= 0)
-				{
+				if (particleTransform.localScale.z >= 1)
 					particleTransform.DOScale(targetScale, scaleTime).SetEase(Ease.InOutQuad);
-				}
 				else
-				{
 					particleTransform.localScale = Vector3.zero;
-				}
 			}
 		}
 

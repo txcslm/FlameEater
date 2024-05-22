@@ -27,7 +27,7 @@ namespace Shaders
       RenderPipelineManager.endCameraRendering -= OnEndCameraRendering;
     }
     
-    private void Awake()
+    public void Initialize()
     {
       if (Application.isPlaying )
         Shader.EnableKeyword(BendingFeature);
