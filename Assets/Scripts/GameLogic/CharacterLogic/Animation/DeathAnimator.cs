@@ -10,6 +10,7 @@ namespace GameLogic.CharacterLogic.Animation
 		[Header("Move Animation")]
 		[SerializeField] private Vector3 _dieTargetPosition;
 		[SerializeField] private Ease _dieAnimationEaseMove;
+		
 		[Header("Rotate Animation")]
 		[SerializeField] private Ease _dieAnimationEaseRotate;
 		[SerializeField] private RotateMode _dieAnimationRotateMode;

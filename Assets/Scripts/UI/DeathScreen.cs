@@ -1,8 +1,5 @@
-using System;
-using DG.Tweening;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace UI
@@ -13,12 +10,11 @@ namespace UI
 		[SerializeField] private Button _exitButton;
 		[SerializeField] private int _sceneIndex;
 
-		private Image _image;
 		private int _currentSceneIndex;
 
 		public void Initialize()
 		{
-			_image = GetComponent<Image>();
+			GetComponent<Image>();
 			_currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
 		}
 		
@@ -34,11 +30,9 @@ namespace UI
 			_exitButton.onClick.RemoveListener(Exit);
 		}
 
-		public void Show()
-		{
+		public void Show() =>
 			gameObject.SetActive(true);
-		}
-		
+
 		private void Exit() =>
 			SceneManager.LoadScene(_sceneIndex);
 

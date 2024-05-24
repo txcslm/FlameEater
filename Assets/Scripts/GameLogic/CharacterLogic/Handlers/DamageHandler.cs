@@ -2,7 +2,6 @@ using System.Collections;
 using GameLogic.AudiSources;
 using GameLogic.Interfaces;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace GameLogic.CharacterLogic.Handlers
 {
