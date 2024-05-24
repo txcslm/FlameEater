@@ -12,15 +12,8 @@ namespace GameLogic.CharacterLogic.Handlers
 		
 		[SerializeField] [Range(2.0f, 7.0f)]private float _dieTime = 2.0f;
 		[SerializeField] private ParticleSystem _particleSystem;
-		
-		private AudioSource _audioSource;
-		private Collider _collider;
-
-		public void Initialize()
-		{
-			_collider = GetComponent<Collider>();
-			_audioSource = GetComponent<AudioSource>();
-		}
+		[SerializeField] private AudioSource _audioSource;
+		[SerializeField] private Collider _collider;
 		
 		public void Interact()
 		{
@@ -28,7 +21,7 @@ namespace GameLogic.CharacterLogic.Handlers
 				throw new NullReferenceException("Particle system is null");
 			
 			PlayInteractive(_particleSystem, _audioSource);
-			Die(_dieTime, _audioSource);
+			Die(_dieTime);
 		}
 
 		private static void PlayInteractive(ParticleSystem particleSystem, AudioSource audioSource)
@@ -46,15 +39,13 @@ namespace GameLogic.CharacterLogic.Handlers
 			
 		}
 		
-		private void Die(float time, AudioSource audioSource)
+		private void Die(float time)
 		{
 			if (time < 0)
 				time = 0;
 			
 			_collider.enabled = false;
 			Destroy(gameObject, time);
-
-			audioSource.Play();
 		}
 	}
 }

@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 0d471cc3db39dc847803964edbb2f4b4, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0d471cc3db39dc847803964edbb2f4b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -22,7 +22,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0d471cc3db39dc847803964edbb2f4b4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -75.44585
+      value: 33.1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0d471cc3db39dc847803964edbb2f4b4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -30,7 +30,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0d471cc3db39dc847803964edbb2f4b4, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0d471cc3db39dc847803964edbb2f4b4, type: 3}
       propertyPath: m_LocalRotation.y
@@ -55,7 +55,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 0d471cc3db39dc847803964edbb2f4b4, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 09b4dcd72a13d5f498b9415f7745790a, type: 2}
+      objectReference: {fileID: 2100000, guid: b725cacc7387b1f4e991c4bdfcd832c8, type: 2}
     - target: {fileID: 919132149155446097, guid: 0d471cc3db39dc847803964edbb2f4b4, type: 3}
       propertyPath: m_Name
       value: Rock Cliff 1 Variant
@@ -67,6 +67,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0d471cc3db39dc847803964edbb2f4b4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 527427476520196861}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0d471cc3db39dc847803964edbb2f4b4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1464375679170920620}
   m_SourcePrefab: {fileID: 100100000, guid: 0d471cc3db39dc847803964edbb2f4b4, type: 3}
 --- !u!1 &4004560796961755373 stripped
 GameObject:
@@ -95,3 +98,15 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 7953245430946541734, guid: 0d471cc3db39dc847803964edbb2f4b4, type: 3}
+--- !u!114 &1464375679170920620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4004560796961755373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1cf8ee73202a014f90850ffa9b2b8af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

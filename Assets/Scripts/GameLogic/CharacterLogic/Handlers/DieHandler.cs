@@ -5,6 +5,7 @@ using Cinemachine;
 using DG.Tweening;
 using GameLogic.CharacterLogic.Animation;
 using GameLogic.CharacterLogic.Movement;
+using UI;
 using UnityEngine;
 
 namespace GameLogic.CharacterLogic.Handlers
@@ -12,7 +13,7 @@ namespace GameLogic.CharacterLogic.Handlers
     public class DieHandler : MonoBehaviour
     {
         [SerializeField] private Transform _viewTransform;
-        [SerializeField] private Canvas _deathScreen;
+        [SerializeField] private DeathScreen _deathScreen;
         [SerializeField] private CinemachineVirtualCamera _camera;
         [SerializeField] private CharacterMovement _characterMovement;
         
@@ -28,7 +29,7 @@ namespace GameLogic.CharacterLogic.Handlers
 
         private event Action Died;
         
-        private bool IsDead => _viewTransform.localScale == Vector3.zero;
+        private bool IsDead => _viewTransform.localScale.x <= 0.0f;
 
         private void OnEnable() =>
             Died += HandleDeath;
@@ -50,7 +51,7 @@ namespace GameLogic.CharacterLogic.Handlers
         private void HandleDeath() =>
             StartCoroutine(DieCoroutine(_dieTime, _audioSource, _camera, _deathScreen, _characterMovement));
 
-        private IEnumerator DieCoroutine(float time, AudioSource audioSource, CinemachineVirtualCamera cam, Canvas canvas, CharacterMovement characterMovement)
+        private IEnumerator DieCoroutine(float time, AudioSource audioSource, CinemachineVirtualCamera cam, DeathScreen deathScreen, CharacterMovement characterMovement)
         {
             if (audioSource is null)
                 throw new ArgumentNullException(nameof(audioSource));
@@ -60,25 +61,28 @@ namespace GameLogic.CharacterLogic.Handlers
             
             if (characterMovement is null)
                 throw new ArgumentNullException(nameof(characterMovement));
-            
+
             foreach (AudioSource source in _audioSources)
-                source.DOFade(0, time);
+            {
+                source.DOFade(0f, time);
+                source.Stop();
+            }
 
             characterMovement.enabled = false;
             _deathAnimator.AnimateDeath(time, cam);
             yield return _wait;
             
             Time.timeScale = 0.0f;
+            ShowDeathScreen(deathScreen);
             audioSource.Play();
-            ShowDeathScreen(canvas);
         }
 
-        private static void ShowDeathScreen(Canvas canvas)
+        private static void ShowDeathScreen(DeathScreen deathScreen)
         {
-            if (canvas is null)
-                throw new ArgumentNullException(nameof(canvas));
+            if (deathScreen is null)
+                throw new ArgumentNullException(nameof(deathScreen));
 
-            canvas.gameObject.SetActive(true);
+            deathScreen.Show();
         }
     }
 }

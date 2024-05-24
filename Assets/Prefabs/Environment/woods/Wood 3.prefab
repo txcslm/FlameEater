@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3497687531201833288}
   - component: {fileID: 2141226269399711109}
   - component: {fileID: 1009978160112757961}
+  - component: {fileID: 5252825870170378540}
   - component: {fileID: 4609716439247700473}
   - component: {fileID: 527290637251841559}
   - component: {fileID: 7222858441149613480}
@@ -86,6 +87,18 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 3.96
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5252825870170378540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5554354834288811162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 406b0e61aa3525748b8a95a08665afe4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &4609716439247700473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -100,6 +113,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dieTime: 4
   _particleSystem: {fileID: 5332581874862290726}
+  _audioSource: {fileID: 7222858441149613480}
+  _collider: {fileID: 1009978160112757961}
 --- !u!114 &527290637251841559
 MonoBehaviour:
   m_ObjectHideFlags: 0

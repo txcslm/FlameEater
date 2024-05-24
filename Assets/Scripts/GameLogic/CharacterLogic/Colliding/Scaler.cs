@@ -8,13 +8,19 @@ namespace GameLogic.CharacterLogic.Colliding
 {
 	public class Scaler : MonoBehaviour, IInteractable
 	{
-		private const float ScaleValue = 1.2f;
+		private const float ScaleValue = 2f;
 		
 		[SerializeField] private List<Transform> _particlesTransforms;
 		[Space] [SerializeField] private SphereCollider _collider;
 		[Header("Scale settings")]
 		[SerializeField] [Range(0, 5)] private float _scaleTime;
-		
+
+		private void FixedUpdate()
+		{
+			if (_collider.radius <= 0f)
+				_collider.radius = 0.5f;
+		}
+
 		public void Interact()
 		{
 			Scaling(_scaleTime, ScaleValue);
@@ -40,13 +46,10 @@ namespace GameLogic.CharacterLogic.Colliding
 		public void ColliderScaling(float scaleValue)
 
 		{
-			const float scalingFactor = 5f;
+			const float scalingFactor = 3f;
 
-			if (_collider == null)
+			if (_collider is null)
 				throw new ArgumentNullException(nameof(_collider));
-
-			if (_collider.radius <= 0)
-				_collider.radius = 0.5f;
 
 			_collider.radius += scaleValue / scalingFactor;
 		}

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8814288005421304195}
   - component: {fileID: 7420722739803937830}
   - component: {fileID: 8229533245399122103}
+  - component: {fileID: -7330476256977102882}
   m_Layer: 6
   m_Name: Building 4
   m_TagString: Untagged
@@ -79,6 +80,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dieTime: 4
   _particleSystem: {fileID: 4706972340792752139}
+  _audioSource: {fileID: 8229533245399122103}
+  _collider: {fileID: 8814288005421304195}
 --- !u!135 &8814288005421304195
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -208,6 +211,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-7330476256977102882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7935951066304475184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4582451213541ff45a14eefa4fa201cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4086780945079307338
 PrefabInstance:
   m_ObjectHideFlags: 0

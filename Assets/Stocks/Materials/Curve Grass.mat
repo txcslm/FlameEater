@@ -11,8 +11,7 @@ Material:
   m_Shader: {fileID: -6465566751694194690, guid: c200d35b13a12fe4e8783ff36f594bf9, type: 3}
   m_Parent: {fileID: 2100000, guid: 09b4dcd72a13d5f498b9415f7745790a, type: 2}
   m_ModifiedSerializedProperties: 16
-  m_ValidKeywords:
-  - ENABLE_BENDING_PLANET
+  m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -29,7 +28,9 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
-    m_Floats: []
+    m_Floats:
+    - ENABLE_BENDING: 0
+    - ENABLE_BENDING_PLANET: 0
     m_Colors: []
   m_BuildTextureStacks: []
 --- !u!114 &8981361295746995383

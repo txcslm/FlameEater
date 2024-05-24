@@ -1,4 +1,5 @@
 using System;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
@@ -11,11 +12,13 @@ namespace UI
 		[SerializeField] private Button _restartButton;
 		[SerializeField] private Button _exitButton;
 		[SerializeField] private int _sceneIndex;
-		
+
+		private Image _image;
 		private int _currentSceneIndex;
 
-		private void Awake()
+		public void Initialize()
 		{
+			_image = GetComponent<Image>();
 			_currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
 		}
 		
@@ -30,16 +33,16 @@ namespace UI
 			_restartButton.onClick.RemoveListener(ReloadScene);
 			_exitButton.onClick.RemoveListener(Exit);
 		}
-		
-		private void Exit()
+
+		public void Show()
 		{
+			gameObject.SetActive(true);
+		}
+		
+		private void Exit() =>
 			SceneManager.LoadScene(_sceneIndex);
-		}
-		
-		private void ReloadScene()
-		{
-			
+
+		private void ReloadScene() =>
 			SceneManager.LoadScene(_currentSceneIndex);
-		}
 	}
 }

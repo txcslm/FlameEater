@@ -1,19 +1,21 @@
-using Services.LoadLevels;
 using UI;
 using UnityEngine;
 using Utility;
 
-public class GameBootstrapper : MonoBehaviour, ICoroutineRunner
+namespace Bootstraps
 {
-	[SerializeField] private CanvasGroupViewer _canvasGroupViewer;
-	
-	private Game _game;
-	
-	private void Awake()
+	public class GameBootstrapper : MonoBehaviour, ICoroutineRunner
 	{
-		DontDestroyOnLoad(_canvasGroupViewer);
-		_game = new Game(_canvasGroupViewer, this);
-		_game.Start();
-		DontDestroyOnLoad(this);
+		[SerializeField] private CanvasGroupViewer _canvasGroupViewer;
+	
+		private Game _game;
+	
+		private void Awake()
+		{
+			DontDestroyOnLoad(_canvasGroupViewer);
+			_game = new Game(_canvasGroupViewer, this);
+			_game.Start();
+			DontDestroyOnLoad(this);
+		}
 	}
 }

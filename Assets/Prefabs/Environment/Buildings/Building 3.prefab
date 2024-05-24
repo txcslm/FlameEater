@@ -4851,6 +4851,7 @@ GameObject:
   - component: {fileID: 7495551956370776381}
   - component: {fileID: 690085896053922546}
   - component: {fileID: -3560805292446003817}
+  - component: {fileID: -1303299118306155871}
   m_Layer: 6
   m_Name: Building 3
   m_TagString: Untagged
@@ -4916,6 +4917,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dieTime: 7
   _particleSystem: {fileID: 8943490217504642853}
+  _audioSource: {fileID: -3560805292446003817}
+  _collider: {fileID: 7495551956370776381}
 --- !u!135 &7495551956370776381
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -5045,6 +5048,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-1303299118306155871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4559610382860530143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4582451213541ff45a14eefa4fa201cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &351232698328290531
 PrefabInstance:
   m_ObjectHideFlags: 0

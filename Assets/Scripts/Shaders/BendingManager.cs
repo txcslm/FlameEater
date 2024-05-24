@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Rendering;
 
 namespace Shaders
@@ -14,7 +13,7 @@ namespace Shaders
 
     private void OnEnable()
     {
-      if (!Application.isPlaying )
+      if (Application.isPlaying == false)
         return;
     
       RenderPipelineManager.beginCameraRendering += OnBeginCameraRendering;
@@ -25,11 +24,14 @@ namespace Shaders
     {
       RenderPipelineManager.beginCameraRendering -= OnBeginCameraRendering;
       RenderPipelineManager.endCameraRendering -= OnEndCameraRendering;
+      
+      Shader.DisableKeyword(BendingFeature);
+      Shader.DisableKeyword(PlanetFeature);
     }
     
     public void Initialize()
     {
-      if (Application.isPlaying )
+      if (Application.isPlaying)
         Shader.EnableKeyword(BendingFeature);
       else
         Shader.DisableKeyword(BendingFeature);
