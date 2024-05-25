@@ -10,7 +10,7 @@ namespace GameLogic.Environments.Movement
         [SerializeField] private float _moveDistance = 600f;
         [SerializeField] private float _tileSize = 200f;
         [SerializeField] private Transform[] _tiles;
-        
+
         private event Action<Direction> OnPlayerMovedDistance;
 
         private Transform[,] _tileGrid;
@@ -30,7 +30,6 @@ namespace GameLogic.Environments.Movement
 
             _lastPlayerPosition = _player.position;
         }
-        
 
         private void OnEnable() =>
             OnPlayerMovedDistance += ShiftTiles;
@@ -41,10 +40,10 @@ namespace GameLogic.Environments.Movement
         private void Update()
         {
             Vector3 moveDirection = _player.position - _lastPlayerPosition;
-            
-            if (moveDirection.magnitude >= _tileSize == false)
+
+            if (moveDirection.magnitude < _tileSize)
                 return;
-            
+
             if (Mathf.Abs(moveDirection.x) > Mathf.Abs(moveDirection.z))
                 OnPlayerMovedDistance?.Invoke(moveDirection.x > 0 ? Direction.Right : Direction.Left);
             else
@@ -72,7 +71,7 @@ namespace GameLogic.Environments.Movement
                 case Direction.Down:
                     ShiftRow(false);
                     break;
-                
+
                 default:
                     throw new ArgumentOutOfRangeException(nameof(direction), direction, null);
             }
@@ -87,12 +86,17 @@ namespace GameLogic.Environments.Movement
                 for (int y = 0; y < gridSize; y++)
                 {
                     Transform temp = _tileGrid[gridSize - 1, y];
-                    
+                    Debug.Log($"Saving element [{gridSize - 1}, {y}] at position {temp.position}");
+
                     for (int x = gridSize - 1; x > 0; x--)
+                    {
                         _tileGrid[x, y] = _tileGrid[x - 1, y];
-                    
+                        Debug.Log($"Moving element [{x - 1}, {y}] to [{x}, {y}]");
+                    }
+
                     _tileGrid[0, y] = temp;
                     _tileGrid[0, y].position += Vector3.right * _moveDistance;
+                    Debug.Log($"Placing saved element at [{0}, {y}] to position {_tileGrid[0, y].position}");
                 }
             }
             else
@@ -100,12 +104,17 @@ namespace GameLogic.Environments.Movement
                 for (int y = 0; y < gridSize; y++)
                 {
                     Transform temp = _tileGrid[0, y];
-                    
+                    Debug.Log($"Saving element [0, {y}] at position {temp.position}");
+
                     for (int x = 0; x < gridSize - 1; x++)
+                    {
                         _tileGrid[x, y] = _tileGrid[x + 1, y];
-                    
+                        Debug.Log($"Moving element [{x + 1}, {y}] to [{x}, {y}]");
+                    }
+
                     _tileGrid[gridSize - 1, y] = temp;
                     _tileGrid[gridSize - 1, y].position += Vector3.left * _moveDistance;
+                    Debug.Log($"Placing saved element at [{gridSize - 1}, {y}] to position {_tileGrid[gridSize - 1, y].position}");
                 }
             }
         }
@@ -119,10 +128,12 @@ namespace GameLogic.Environments.Movement
                 for (int x = 0; x < gridSize; x++)
                 {
                     Transform temp = _tileGrid[x, gridSize - 1];
-                    
+
                     for (int y = gridSize - 1; y > 0; y--)
+                    {
                         _tileGrid[x, y] = _tileGrid[x, y - 1];
-                    
+                    }
+
                     _tileGrid[x, 0] = temp;
                     _tileGrid[x, 0].position += Vector3.forward * _moveDistance;
                 }
@@ -132,10 +143,12 @@ namespace GameLogic.Environments.Movement
                 for (int x = 0; x < gridSize; x++)
                 {
                     Transform temp = _tileGrid[x, 0];
-                    
+
                     for (int y = 0; y < gridSize - 1; y++)
+                    {
                         _tileGrid[x, y] = _tileGrid[x, y + 1];
-                    
+                    }
+
                     _tileGrid[x, gridSize - 1] = temp;
                     _tileGrid[x, gridSize - 1].position += Vector3.back * _moveDistance;
                 }
