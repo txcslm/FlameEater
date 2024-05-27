@@ -2328,12 +2328,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1981572983}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6fe10a9376178bd40b061bc5d0d929cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enablePlanet: 1
+  _enablePlanet: 0
 --- !u!4 &1981572985
 Transform:
   m_ObjectHideFlags: 0
@@ -2544,13 +2544,8 @@ PrefabInstance:
       propertyPath: _player
       value: 
       objectReference: {fileID: 1210154082}
-    - target: {fileID: 8377371418542153398, guid: 7b168053ef57ee14491666e6df90c3aa, type: 3}
-      propertyPath: _moveDistance
-      value: 600
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 3955636251795599556, guid: 7b168053ef57ee14491666e6df90c3aa, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b168053ef57ee14491666e6df90c3aa, type: 3}
@@ -2576,7 +2571,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 99415045002138890, guid: d771263ed1b04914a992e87eea73eaf8, type: 3}
       propertyPath: m_ConstrainProportionsScale
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 290152488117003982, guid: d771263ed1b04914a992e87eea73eaf8, type: 3}
       propertyPath: m_RootOrder
@@ -2636,7 +2631,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 821273191385777188, guid: d771263ed1b04914a992e87eea73eaf8, type: 3}
       propertyPath: m_ConstrainProportionsScale
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1073091433767076585, guid: d771263ed1b04914a992e87eea73eaf8, type: 3}
       propertyPath: m_LocalScale.x
@@ -2652,7 +2647,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1073091433767076585, guid: d771263ed1b04914a992e87eea73eaf8, type: 3}
       propertyPath: m_ConstrainProportionsScale
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1242828599304145107, guid: d771263ed1b04914a992e87eea73eaf8, type: 3}
       propertyPath: m_Radius
@@ -2676,7 +2671,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1827686859127399417, guid: d771263ed1b04914a992e87eea73eaf8, type: 3}
       propertyPath: m_ConstrainProportionsScale
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3942441987510177150, guid: d771263ed1b04914a992e87eea73eaf8, type: 3}
       propertyPath: m_LocalScale.x
@@ -2692,7 +2687,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3942441987510177150, guid: d771263ed1b04914a992e87eea73eaf8, type: 3}
       propertyPath: m_ConstrainProportionsScale
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4476580687268576117, guid: d771263ed1b04914a992e87eea73eaf8, type: 3}
       propertyPath: m_Name
@@ -2736,7 +2731,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6474717144229965469, guid: d771263ed1b04914a992e87eea73eaf8, type: 3}
       propertyPath: m_ConstrainProportionsScale
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

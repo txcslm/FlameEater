@@ -23,8 +23,8 @@ namespace GameLogic.Environments.Movement
 
             for (int i = 0; i < _tiles.Length; i++)
             {
-                int x = i % gridSize;
-                int y = i / gridSize;
+                int x = i / gridSize;
+                int y = i % gridSize;
                 _tileGrid[x, y] = _tiles[i];
             }
 
@@ -86,17 +86,14 @@ namespace GameLogic.Environments.Movement
                 for (int y = 0; y < gridSize; y++)
                 {
                     Transform temp = _tileGrid[gridSize - 1, y];
-                    Debug.Log($"Saving element [{gridSize - 1}, {y}] at position {temp.position}");
 
                     for (int x = gridSize - 1; x > 0; x--)
                     {
                         _tileGrid[x, y] = _tileGrid[x - 1, y];
-                        Debug.Log($"Moving element [{x - 1}, {y}] to [{x}, {y}]");
                     }
 
                     _tileGrid[0, y] = temp;
                     _tileGrid[0, y].position += Vector3.right * _moveDistance;
-                    Debug.Log($"Placing saved element at [{0}, {y}] to position {_tileGrid[0, y].position}");
                 }
             }
             else
@@ -104,17 +101,14 @@ namespace GameLogic.Environments.Movement
                 for (int y = 0; y < gridSize; y++)
                 {
                     Transform temp = _tileGrid[0, y];
-                    Debug.Log($"Saving element [0, {y}] at position {temp.position}");
 
                     for (int x = 0; x < gridSize - 1; x++)
                     {
                         _tileGrid[x, y] = _tileGrid[x + 1, y];
-                        Debug.Log($"Moving element [{x + 1}, {y}] to [{x}, {y}]");
                     }
 
                     _tileGrid[gridSize - 1, y] = temp;
                     _tileGrid[gridSize - 1, y].position += Vector3.left * _moveDistance;
-                    Debug.Log($"Placing saved element at [{gridSize - 1}, {y}] to position {_tileGrid[gridSize - 1, y].position}");
                 }
             }
         }
