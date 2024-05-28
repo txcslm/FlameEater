@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -9,7 +10,8 @@ namespace UI
 		[SerializeField] private Button _restartButton;
 		[SerializeField] private Button _exitButton;
 		[SerializeField] private int _sceneIndex;
-
+		
+		
 		private int _currentSceneIndex;
 
 		public void Initialize()

@@ -20,7 +20,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &5851992035014555203
 Transform:
@@ -29,6 +29,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7485478405428189394}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -59.34, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -37,7 +38,6 @@ Transform:
   - {fileID: 2859639431545185795}
   - {fileID: 8990724424466445012}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &6443625669629839483
 Rigidbody:
@@ -82,6 +82,7 @@ MonoBehaviour:
   _particleSystem: {fileID: 1097846805572798231}
   _audioSource: {fileID: -3936954295450316573}
   _collider: {fileID: 5590121465200818750}
+  _points: 10
 --- !u!135 &5590121465200818750
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -234,6 +235,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 3ad660daf3a1e02458b9f3eca418861a, type: 3}
       propertyPath: m_Name
       value: View
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 3ad660daf3a1e02458b9f3eca418861a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3ad660daf3a1e02458b9f3eca418861a, type: 3}
       propertyPath: m_RootOrder
@@ -481,6 +486,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 3955611128132740473, guid: 7333a2c4834e80b4bafea66a3425937a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 5206465006960080420, guid: 7333a2c4834e80b4bafea66a3425937a, type: 3}
       propertyPath: m_LocalScale.x
       value: 10
@@ -533,6 +542,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 5408341893896631711, guid: 7333a2c4834e80b4bafea66a3425937a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 5984439084272791028, guid: 7333a2c4834e80b4bafea66a3425937a, type: 3}
       propertyPath: ShapeModule.arc.value
       value: 305.58
@@ -576,6 +589,10 @@ PrefabInstance:
     - target: {fileID: 8809990138939096781, guid: 7333a2c4834e80b4bafea66a3425937a, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8809990138939096781, guid: 7333a2c4834e80b4bafea66a3425937a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:

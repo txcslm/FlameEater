@@ -27,8 +27,8 @@ namespace GameLogic.CharacterLogic.Handlers
         
         private WaitForSeconds _wait;
 
-        private event Action Died;
-        
+        public event Action Died;
+
         private bool IsDead => _viewTransform.localScale.x <= 0.0f;
 
         private void OnEnable() =>
@@ -45,6 +45,11 @@ namespace GameLogic.CharacterLogic.Handlers
             if (IsDead == false)
                 return;
 
+            InvokeDeath();
+        }
+
+        public void InvokeDeath()
+        {
             Died?.Invoke();
         }
 

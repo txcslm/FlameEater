@@ -15,12 +15,12 @@ GameObject:
   - component: {fileID: 2484523258573254632}
   - component: {fileID: -7642356542242209847}
   - component: {fileID: 5245819831702130076}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: Building 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &3861263140254226023
 Transform:
@@ -29,6 +29,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 15338810552785991}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 34.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -37,7 +38,6 @@ Transform:
   - {fileID: 7113822051153239355}
   - {fileID: 3820013310116636737}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &9202274014012939690
 Rigidbody:
@@ -82,6 +82,7 @@ MonoBehaviour:
   _particleSystem: {fileID: 5114475356504644994}
   _audioSource: {fileID: -7642356542242209847}
   _collider: {fileID: 2515244670254837518}
+  _points: 5
 --- !u!135 &2515244670254837518
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -277,11 +278,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2694514441864873452, guid: 7333a2c4834e80b4bafea66a3425937a, type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2694514441864873452, guid: 7333a2c4834e80b4bafea66a3425937a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 3955611128132740473, guid: 7333a2c4834e80b4bafea66a3425937a, type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3955611128132740473, guid: 7333a2c4834e80b4bafea66a3425937a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 5375342416928529882, guid: 7333a2c4834e80b4bafea66a3425937a, type: 3}
       propertyPath: m_LocalScale.x
@@ -309,7 +318,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5408341893896631711, guid: 7333a2c4834e80b4bafea66a3425937a, type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5408341893896631711, guid: 7333a2c4834e80b4bafea66a3425937a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8120476703714180473, guid: 7333a2c4834e80b4bafea66a3425937a, type: 3}
       propertyPath: m_LocalScale.x
@@ -362,7 +375,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 3ad660daf3a1e02458b9f3eca418861a, type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 3ad660daf3a1e02458b9f3eca418861a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3ad660daf3a1e02458b9f3eca418861a, type: 3}
       propertyPath: m_RootOrder
