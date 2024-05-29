@@ -151,6 +151,10 @@ PrefabInstance:
       propertyPath: _points
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2808030247168458181, guid: f57a0d77c437aef478e7b53cc487dab5, type: 3}
+      propertyPath: _dieTime
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4597507684767410394, guid: f57a0d77c437aef478e7b53cc487dab5, type: 3}
       propertyPath: m_RootOrder
       value: 0

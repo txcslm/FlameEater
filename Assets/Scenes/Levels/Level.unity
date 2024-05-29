@@ -2787,7 +2787,7 @@ PrefabInstance:
       objectReference: {fileID: 230443157}
     - target: {fileID: 1035001040891318440, guid: d771263ed1b04914a992e87eea73eaf8, type: 3}
       propertyPath: _scaleTime
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1073091433767076585, guid: d771263ed1b04914a992e87eea73eaf8, type: 3}
       propertyPath: m_LocalScale.x
@@ -2812,6 +2812,10 @@ PrefabInstance:
     - target: {fileID: 1827686859127399417, guid: d771263ed1b04914a992e87eea73eaf8, type: 3}
       propertyPath: m_LocalScale.z
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2073349671318948793, guid: d771263ed1b04914a992e87eea73eaf8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3942441987510177150, guid: d771263ed1b04914a992e87eea73eaf8, type: 3}
       propertyPath: m_LocalScale.x
@@ -2838,6 +2842,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 131933773}
     - target: {fileID: 5499606808992330545, guid: d771263ed1b04914a992e87eea73eaf8, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5499606808992330545, guid: d771263ed1b04914a992e87eea73eaf8, type: 3}
       propertyPath: _deathScreen
       value: 
       objectReference: {fileID: 1759744828}
@@ -2861,6 +2869,10 @@ PrefabInstance:
       propertyPath: _view
       value: 
       objectReference: {fileID: 833174020}
+    - target: {fileID: 9217749537855547080, guid: d771263ed1b04914a992e87eea73eaf8, type: 3}
+      propertyPath: _totalTime
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 9217749537855547080, guid: d771263ed1b04914a992e87eea73eaf8, type: 3}
       propertyPath: _dieHandler
       value: 

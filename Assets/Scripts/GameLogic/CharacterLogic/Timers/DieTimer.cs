@@ -11,12 +11,13 @@ namespace GameLogic.CharacterLogic.Timers
 	[RequireComponent(typeof(SphereCollider))]
 	public class DieTimer : MonoBehaviour, IInteractable
 	{
-		[SerializeField] private Slider _timerSlider;
 		[SerializeField] private Scaler _scaler;
-		[SerializeField] private float _totalTime = 10f;
 		[SerializeField] private DieHandler _dieHandler;
+		[SerializeField] private Transform _view;
+		[Header("Timer Settings")]
+		[SerializeField] private Slider _timerSlider;
+		[SerializeField] private float _totalTime = 10f;
 		[SerializeField] private float _timeIncrement = 5f;
-		[SerializeField] [Range(0.1f, 100f)] private float _scaleReductionFactor = 5f;
 
 		private float _currentTime;
 		private Coroutine _deathCountdownCoroutine;
@@ -33,8 +34,13 @@ namespace GameLogic.CharacterLogic.Timers
 
 			_scaler.ScaleChanged += HandleScaleChanged;
 			_dieHandler.Died += HandleDeath;
+			_deathCountdownCoroutine ??= StartCoroutine(DeathCountdown());
+		}
 
-			_deathCountdownCoroutine = StartCoroutine(DeathCountdown());
+		private void FixedUpdate()
+		{
+			if (_collider.radius <= 0.5f)
+				_collider.radius = 1f;
 		}
 
 		private void OnDestroy()
@@ -54,47 +60,41 @@ namespace GameLogic.CharacterLogic.Timers
 			if (_scaler is null)
 				throw new ArgumentNullException(nameof(_scaler));
 
-			if (_collider.radius <= 0.5f)
-				_collider.radius = 0.5f;
+
 
 			_collider.radius += scaleValue;
+			
+			if(_collider.radius > 10f)
+				_collider.radius = 10f;
 		}
 		
-
 		private IEnumerator DeathCountdown()
 		{
+			float initialTime = _currentTime;
+			float initialScale = _view.localScale.x;
+
 			while (_currentTime > 0)
 			{
 				_currentTime -= 1f;
 				_timerSlider.value = _currentTime;
 
-				float scaleValue = Time.deltaTime;
-				ViewScalingDamage(_scaler, scaleValue);
-				ColliderScalingDamage(_scaler, scaleValue / _scaleReductionFactor);
-				HandleScaleChanged(-scaleValue / _scaleReductionFactor);
+				float currentScale = _view.localScale.x;
+				float targetScale = _currentTime / initialTime * initialScale;
+				
+				if (currentScale > initialScale)
+					initialScale = currentScale;
+
+				float scaleFactor = currentScale - targetScale;
+
+				_scaler.Scaling(-scaleFactor);
+				_scaler.ColliderScaling(-scaleFactor);
+				HandleScaleChanged(-scaleFactor);
 
 				yield return _waitForSeconds;
 			}
 
 			_dieHandler.InvokeDeath();
 			StopDeathCountdown();
-		}
-
-		private static void ViewScalingDamage(Scaler scaler, float damage)
-		{
-			if (scaler is null)
-				throw new ArgumentNullException(nameof(scaler));
-			
-
-			scaler.Scaling(-damage);
-		}
-
-		private static void ColliderScalingDamage(Scaler scaler, float damage)
-		{
-			if (scaler is null)
-				throw new ArgumentNullException(nameof(scaler));
-
-			scaler.ColliderScaling(-damage);
 		}
 
 		private void HandleDeath()

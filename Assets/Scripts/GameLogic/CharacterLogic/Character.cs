@@ -8,7 +8,6 @@ namespace GameLogic.CharacterLogic
 {
 	public class Character : MonoBehaviour, IDamageable
 	{
-		[SerializeField] private Transform _flameViewTransform;
 		[SerializeField] private Scaler _scaler;
 		[SerializeField] private Steam _steam;
 
@@ -17,38 +16,34 @@ namespace GameLogic.CharacterLogic
 			_steam = GetComponentInChildren<Steam>();
 		}
 
-		public void TakeDamage(int damage)
+		public void TakeDamage(float damage)
 		{
-			const int damageMultiplier = 2;
+			const float damageMultiplier = 2.0f;
 
-			if (damage <= 0)
-				damage = 1;
+			if (damage <= 0.0f)
+				damage = 1.0f;
 
 			damage *= damageMultiplier;
 
+			_steam.PlaySteam();
 			ViewScalingDamage(_scaler, damage);
 			ColliderScalingDamage(_scaler, damage);
-			_steam.PlaySteam();
 		}
 
-		private static void ViewScalingDamage(Scaler scaler, int damage)
+		private static void ViewScalingDamage(Scaler scaler, float damage)
 		{
 			if (scaler is null)
 				throw new ArgumentNullException(nameof(scaler));
-
-
 
 			scaler.Scaling(-damage);
 		}
 
 		private static void ColliderScalingDamage(Scaler scaler, float damage)
 		{
-			const float damageFactor = 1.2f;
-
 			if (scaler is null)
 				throw new ArgumentNullException(nameof(scaler));
 
-			scaler.ColliderScaling(-damage / damageFactor);
+			scaler.ColliderScaling(-damage);
 		}
 	}
 }
