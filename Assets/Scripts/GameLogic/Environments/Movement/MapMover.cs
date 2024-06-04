@@ -1,34 +1,42 @@
 using System;
-using GameLogic.Environments.Directions;
+using System.Collections.Generic;
+using Constants.Enums;
+using Constants.Enums.Directions;
+using Factories.Interfaces;
+using Services;
 using UnityEngine;
 
 namespace GameLogic.Environments.Movement
 {
 	public class MapMover : MonoBehaviour
 	{
-		[SerializeField] private Transform _player;
 		[SerializeField] private float _moveDistance = 600f;
 		[SerializeField] private float _tileSize = 200f;
 		[SerializeField] private Transform[] _tiles;
 
 		private event Action<Direction> OnPlayerMovedDistance;
 
+		
+		private Transform _characterTransform;
 		private Transform[,] _tileGrid;
-		private Vector3 _lastPlayerPosition;
+		private Vector3 _lastCharacterPosition;
+		private IGameFactory _gameFactory;
 
 		private void Awake()
 		{
-			int gridSize = Mathf.RoundToInt(Mathf.Sqrt(_tiles.Length));
-			_tileGrid = new Transform[gridSize, gridSize];
+			_gameFactory = AllServices.Container.Single<IGameFactory>();
 
-			for (int i = 0; i < _tiles.Length; i++)
+			if (_gameFactory.CharacterGameObject is null)
 			{
-				int x = i / gridSize;
-				int y = i % gridSize;
-				_tileGrid[x, y] = _tiles[i];
+				_gameFactory.CharacterCreated += OnCharacterCreated;
+			}
+			else
+			{
+				InitializeHeroTransform();
+				_lastCharacterPosition = _characterTransform.position;
 			}
 
-			_lastPlayerPosition = _player.position;
+			CreateArray();
 		}
 
 		private void OnEnable() =>
@@ -39,42 +47,63 @@ namespace GameLogic.Environments.Movement
 
 		private void Update()
 		{
-			Vector3 moveDirection = _player.position - _lastPlayerPosition;
+			
+			if(_characterTransform is null)
+				return;
+			
+			Vector3 moveDirection = _characterTransform.position - _lastCharacterPosition;
 
 			if (moveDirection.magnitude < _tileSize)
 				return;
 
+			ChooseDirection(moveDirection);
+			Debug.Log(_lastCharacterPosition);
+		}
+
+		private void ChooseDirection(Vector3 moveDirection)
+		{
 			if (Mathf.Abs(moveDirection.x) > Mathf.Abs(moveDirection.z))
 			{
 				OnPlayerMovedDistance?.Invoke(moveDirection.x > 0 ? Direction.Right : Direction.Left);
-				_lastPlayerPosition = new Vector3(Mathf.Round(_player.position.x / _tileSize) * _tileSize, _lastPlayerPosition.y, _lastPlayerPosition.z);
+				_lastCharacterPosition = GetLastCharacterPositionX(_characterTransform.position.x, _lastCharacterPosition.y, _lastCharacterPosition.z, _tileSize);
 			}
 			else
 			{
 				OnPlayerMovedDistance?.Invoke(moveDirection.z > 0 ? Direction.Up : Direction.Down);
-				_lastPlayerPosition = new Vector3(_lastPlayerPosition.x, _lastPlayerPosition.y, Mathf.Round(_player.position.z / _tileSize) * _tileSize);
+				_lastCharacterPosition = GetLastCharacterPositionZ(_lastCharacterPosition.x, _lastCharacterPosition.y, _characterTransform.position.z, _tileSize);
 			}
-			Debug.Log(_lastPlayerPosition);
 		}
+
+		private Vector3 GetLastCharacterPositionZ(float x, float y, float z, float tileSize) =>
+			new Vector3(x, y, Mathf.Round(z / tileSize) * tileSize);
+
+		private Vector3 GetLastCharacterPositionX(float x, float y, float z, float tileSize) =>
+			new Vector3(Mathf.Round(x / tileSize) * tileSize, y,z);
+
+		private void OnCharacterCreated() =>
+			InitializeHeroTransform();
+
+		private void InitializeHeroTransform() =>
+			_characterTransform = _gameFactory.CharacterGameObject.transform;
 
 		private void ShiftTiles(Direction direction)
 		{
 			switch (direction)
 			{
 				case Direction.Right:
-					ShiftColumn(true);
+					Shift(Direction.Right);
 					break;
 
 				case Direction.Left:
-					ShiftColumn(false);
+					Shift(Direction.Left);
 					break;
 
 				case Direction.Up:
-					ShiftRow(true);
+					Shift(Direction.Up);
 					break;
 
 				case Direction.Down:
-					ShiftRow(false);
+					Shift(Direction.Down);
 					break;
 
 				default:
@@ -82,67 +111,82 @@ namespace GameLogic.Environments.Movement
 			}
 		}
 
-		private void ShiftColumn(bool isRight)
+		private void Shift(Direction direction)
+        {
+            bool forward = direction is Direction.Up or Direction.Right;
+
+            ShiftType shiftType = direction is Direction.Up or Direction.Down
+                ? ShiftType.Row 
+                : ShiftType.Column;
+
+            Dictionary<Direction, Vector3> directionToVector = new Dictionary<Direction, Vector3>
+            {
+                [Direction.Up] = Vector3.forward,
+                [Direction.Down] = Vector3.back,
+                [Direction.Right] = Vector3.right,
+                [Direction.Left] = Vector3.left
+            };
+
+            int gridSize = _tileGrid.GetLength(0);
+
+            for (int x = 0; x < gridSize; x++)
+            {
+                int lastIndex = gridSize - 1;
+
+                int indexFrom = forward ? lastIndex : 0;
+                int indexTo = forward ? 0 : lastIndex;
+
+                Vector3 positionShift = directionToVector[direction] * _moveDistance;
+
+                Transform temp = GetValue(x, indexFrom, shiftType);
+
+                for (int y = indexFrom; forward ? (y > indexTo) : (y < indexTo);)
+                {
+                    int nextIndex = forward
+                        ? y - 1
+                        : y + 1;
+
+                    SetValue(x, y, shiftType, GetValue(x, nextIndex, shiftType));
+
+                    if (forward)
+                        y--;
+                    else
+                        y++;
+                }
+
+                SetValue(x, indexTo, shiftType, temp);
+                temp.position += positionShift;
+            }
+
+        }
+
+		private Transform GetValue(int x, int y, ShiftType shiftType)
+        {
+            return shiftType == ShiftType.Row ? _tileGrid[x, y] : _tileGrid[y, x];
+        }
+
+		private void SetValue(int x, int y, ShiftType shiftType, Transform transformPosition)
+        {
+            if (shiftType == ShiftType.Row)
+            {
+                _tileGrid[x, y] = transformPosition;
+            }
+            else
+            {
+                _tileGrid[y, x] = transformPosition;
+            }
+        }
+
+		private void CreateArray()
 		{
-			int gridSize = _tileGrid.GetLength(0);
+			int gridSize = Mathf.RoundToInt(Mathf.Sqrt(_tiles.Length));
+			_tileGrid = new Transform[gridSize, gridSize];
 
-			if (isRight)
+			for (int i = 0; i < _tiles.Length; i++)
 			{
-				for (int y = 0; y < gridSize; y++)
-				{
-					Transform temp = _tileGrid[gridSize - 1, y];
-
-					for (int x = gridSize - 1; x > 0; x--)
-						_tileGrid[x, y] = _tileGrid[x - 1, y];
-
-					_tileGrid[0, y] = temp;
-					_tileGrid[0, y].position += Vector3.right * _moveDistance;
-				}
-			}
-			else
-			{
-				for (int y = 0; y < gridSize; y++)
-				{
-					Transform temp = _tileGrid[0, y];
-
-					for (int x = 0; x < gridSize - 1; x++)
-						_tileGrid[x, y] = _tileGrid[x + 1, y];
-
-					_tileGrid[gridSize - 1, y] = temp;
-					_tileGrid[gridSize - 1, y].position += Vector3.left * _moveDistance;
-				}
-			}
-		}
-
-		private void ShiftRow(bool isUp)
-		{
-			int gridSize = _tileGrid.GetLength(0);
-
-			if (isUp)
-			{
-				for (int x = 0; x < gridSize; x++)
-				{
-					Transform temp = _tileGrid[x, gridSize - 1];
-
-					for (int y = gridSize - 1; y > 0; y--)
-						_tileGrid[x, y] = _tileGrid[x, y - 1];
-
-					_tileGrid[x, 0] = temp;
-					_tileGrid[x, 0].position += Vector3.forward * _moveDistance;
-				}
-			}
-			else
-			{
-				for (int x = 0; x < gridSize; x++)
-				{
-					Transform temp = _tileGrid[x, 0];
-
-					for (int y = 0; y < gridSize - 1; y++)
-						_tileGrid[x, y] = _tileGrid[x, y + 1];
-
-					_tileGrid[x, gridSize - 1] = temp;
-					_tileGrid[x, gridSize - 1].position += Vector3.back * _moveDistance;
-				}
+				int x = i / gridSize;
+				int y = i % gridSize;
+				_tileGrid[x, y] = _tiles[i];
 			}
 		}
 	}

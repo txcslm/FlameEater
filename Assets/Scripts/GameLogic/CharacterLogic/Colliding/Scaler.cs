@@ -9,36 +9,40 @@ namespace GameLogic.CharacterLogic.Colliding
 	public class Scaler : MonoBehaviour, IInteractable
 	{
 		private const float ScaleValue = 2f;
+		private const float MaxColliderRadiusValue = 8.0f;
+		private const float MinColliderRadiusValue = 0.5f;
+		private const float MinScaleZ = 0.5f;
 
 		[SerializeField] private List<Transform> _particlesTransforms;
 		[SerializeField] private SphereCollider _collider;
 		[SerializeField] private float _scaleTime = 2f;
 		
-		private readonly Vector3 _maxScale = new Vector3(10, 2, 10);
+		private readonly Vector3 _maxScale = new Vector3(17, 2, 17);
 
 		public event Action<float> ScaleChanged;
 
 		private void FixedUpdate()
 		{
-			if (_collider.radius < 0.5f)
-				_collider.radius = 0.5f;
+			if (_collider.radius < MinColliderRadiusValue)
+				_collider.radius = MinColliderRadiusValue;
 		}
 
 		public void Interact()
 		{
-			Scaling(ScaleValue);
-			ColliderScaling(ScaleValue);
+			Scale(ScaleValue);
+			ScaleCollider(ScaleValue);
 		}
 
-		public void Scaling(float scaleValue)
+		public void Scale(float scaleValue)
 		{
-			
 			foreach (Transform particleTransform in _particlesTransforms)
 			{
 				Vector3 targetScale = particleTransform.localScale + new Vector3(scaleValue, 0f, scaleValue);
 
-				if (particleTransform.localScale.z >= 0.5f)
-					particleTransform.localScale = new Vector3(Mathf.Lerp(particleTransform.localScale.x, targetScale.x, _scaleTime), 2f, Mathf.Lerp(particleTransform.localScale.z, targetScale.z, _scaleTime));
+				if (particleTransform.localScale.z >= MinScaleZ)
+					particleTransform.localScale = new Vector3(Mathf.Lerp(particleTransform.localScale.x, targetScale.x, _scaleTime),
+						2f,
+						Mathf.Lerp(particleTransform.localScale.z, targetScale.z, _scaleTime));
 				else
 					particleTransform.localScale = Vector3.zero;
 
@@ -49,7 +53,7 @@ namespace GameLogic.CharacterLogic.Colliding
 			ScaleChanged?.Invoke(scaleValue);
 		}
 
-		public void ColliderScaling(float scaleValue)
+		public void ScaleCollider(float scaleValue)
 		{
 			const float scalingFactor = 3f;
 
@@ -57,9 +61,9 @@ namespace GameLogic.CharacterLogic.Colliding
 				throw new ArgumentNullException(nameof(_collider));
 
 			_collider.radius += scaleValue / scalingFactor;
-			
-			if(_collider.radius > 5f)
-				_collider.radius = 5f;
+
+			if (_collider.radius > MaxColliderRadiusValue)
+				_collider.radius = MaxColliderRadiusValue;
 		}
 	}
 }

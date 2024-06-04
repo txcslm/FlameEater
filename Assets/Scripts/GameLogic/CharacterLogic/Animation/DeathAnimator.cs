@@ -16,16 +16,11 @@ namespace GameLogic.CharacterLogic.Animation
 		[SerializeField] private RotateMode _dieAnimationRotateMode;
 		[SerializeField] private Vector3 _dieTargetRotation;
 		
-		public void AnimateDeath(float time, CinemachineVirtualCamera cam)
+		public void AnimateDeath(float time)
 		{
-			if (cam is null)
-				throw new ArgumentNullException(nameof(cam));
 			
 			if (time < 0)
 				time = 0;
-
-			cam.transform.DOMove(_dieTargetRotation, time).SetEase(_dieAnimationEaseMove);
-			cam.transform.DORotate(_dieTargetRotation, time, _dieAnimationRotateMode).SetEase(_dieAnimationEaseRotate);
 		}
 	}
 }

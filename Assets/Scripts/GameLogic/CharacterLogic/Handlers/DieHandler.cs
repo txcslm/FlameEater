@@ -14,7 +14,6 @@ namespace GameLogic.CharacterLogic.Handlers
     {
         [SerializeField] private Transform _viewTransform;
         [SerializeField] private DeathScreen _deathScreen;
-        [SerializeField] private CinemachineVirtualCamera _camera;
         [SerializeField] private CharacterMovement _characterMovement;
         
         [Header("Audio Sources")]
@@ -54,15 +53,12 @@ namespace GameLogic.CharacterLogic.Handlers
         }
 
         private void HandleDeath() =>
-            StartCoroutine(DieCoroutine(_dieTime, _audioSource, _camera, _deathScreen, _characterMovement));
+            StartCoroutine(DieCoroutine(_dieTime, _audioSource, _deathScreen, _characterMovement));
 
-        private IEnumerator DieCoroutine(float time, AudioSource audioSource, CinemachineVirtualCamera cam, DeathScreen deathScreen, CharacterMovement characterMovement)
+        private IEnumerator DieCoroutine(float time, AudioSource audioSource, DeathScreen deathScreen, CharacterMovement characterMovement)
         {
             if (audioSource is null)
                 throw new ArgumentNullException(nameof(audioSource));
-
-            if (cam is null)
-                throw new ArgumentNullException(nameof(cam));
             
             if (characterMovement is null)
                 throw new ArgumentNullException(nameof(characterMovement));
@@ -74,7 +70,7 @@ namespace GameLogic.CharacterLogic.Handlers
             }
 
             characterMovement.enabled = false;
-            _deathAnimator.AnimateDeath(time, cam);
+            _deathAnimator.AnimateDeath(time);
             yield return _wait;
             
             Time.timeScale = 0.0f;

@@ -1,14 +1,17 @@
+using Services;
+using Services.Interfaces;
+using Services.LoadLevels;
 using StateMachine;
 using UI;
 using Utility;
 
 public class Game
 {
-	private readonly GameStateMachine _stateMachine;
+	public GameStateMachine StateMachine { get; }
 
-	public Game(CanvasGroupViewer canvasGroupViewer, ICoroutineRunner coroutineRunner) =>
-		_stateMachine = new GameStateMachine(canvasGroupViewer, coroutineRunner);
-
-	public void Start() =>
-		_stateMachine.Start();
+	public Game(ICoroutineRunner coroutineRunner, CanvasGroupViewer curtain)
+	{
+		StateMachine = new GameStateMachine(new UnityLoadSceneService(coroutineRunner), curtain, AllServices.Container);
+		
+	}
 }

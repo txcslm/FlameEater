@@ -14,7 +14,7 @@ namespace Services.LoadLevels
 		public UnityLoadSceneService(ICoroutineRunner coroutineRunner) =>
 			_coroutineRunner = coroutineRunner;
 
-		public void Load(string sceneName, Action sceneLoaded) =>
+		public void Load(string sceneName, Action sceneLoaded = null) =>
 			_coroutineRunner.StartCoroutine(LoadAsync(sceneName, sceneLoaded));
 
 		private static IEnumerator LoadAsync(string sceneName, Action sceneLoaded)
@@ -25,11 +25,11 @@ namespace Services.LoadLevels
 				yield break;
 			}
 
-			AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(sceneName);
+			AsyncOperation waitNextScene = SceneManager.LoadSceneAsync(sceneName);
 			
-			Debug.Log(nameof(asyncOperation));
+			Debug.Log(nameof(waitNextScene));
 
-			while (asyncOperation!.isDone == false)
+			while (waitNextScene!.isDone == false)
 				yield return null;
 			
 			sceneLoaded?.Invoke();

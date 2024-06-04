@@ -1,8 +1,7 @@
 namespace StateMachine.Interfaces
 {
-	public interface IState
+	public interface IState : IExitState
 	{
 		void Enter();
-		void Exit();
 	}
 }

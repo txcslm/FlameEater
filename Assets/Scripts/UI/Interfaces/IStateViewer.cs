@@ -2,7 +2,7 @@ namespace UI.Interfaces
 {
 	public interface IStateViewer
 	{
-		void Enable();
-		void Disable();
+		void Show();
+		void Hide();
 	}
 }

@@ -2,10 +2,12 @@
 
 using System.Collections;
 using Agava.YandexGames;
+using Agava.YandexGames.Samples;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-namespace Samples.Yandex_Games._16._0._0.Playtesting_Sample
+namespace Agava.YandexGames.Samples
 {
     public class PlaytestingCanvas : MonoBehaviour
     {

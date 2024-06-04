@@ -1,8 +1,7 @@
-using Agava.WebUtility;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Samples.Web_Utility._3._1._0.Playtesting_Sample
+namespace Agava.WebUtility.Samples
 {
     public class PlaytestingCanvas : MonoBehaviour
     {

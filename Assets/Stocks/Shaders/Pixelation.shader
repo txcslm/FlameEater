@@ -4,7 +4,7 @@ Shader "Hidden/Pixelation"
     {
         _MainTex ("Texture", 2D) = "white" {}
     }
-     SubShader
+    SubShader
     {
         Tags
         {
@@ -58,7 +58,7 @@ Shader "Hidden/Pixelation"
                 float2 block_center = block_pos * _BlockSize + _HalfBlockSize;
 
                 float4 tex = SAMPLE_TEXTURE2D(_MainTex, sampler_point_clamp, block_center);
-				//return float4(IN.uv,1,1);
+                //return float4(IN.uv,1,1);
 
                 return tex;
             }

@@ -1,8 +1,7 @@
-using Agava.YandexGames;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Samples.Yandex_Games._16._0._0.Playtesting_Sample
+namespace Agava.YandexGames.Samples
 {
     public class PurchasedProductPanel : MonoBehaviour
     {
