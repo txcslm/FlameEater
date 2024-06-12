@@ -10254,6 +10254,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fb83bc638ee484e93d4f510e7d2258c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _dieTimer: {fileID: 9217749537855547080}
+  _dieHandler: {fileID: 5499606808992330545}
 --- !u!114 &7063466889803194607
 MonoBehaviour:
   m_ObjectHideFlags: 0

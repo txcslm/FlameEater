@@ -29,19 +29,6 @@ namespace GameLogic.CharacterLogic.Timers
 		private SphereCollider _collider;
 		private WaitForSecondsRealtime _waitForSeconds;
 
-		public void Initialize()
-		{
-			_waitForSeconds = new WaitForSecondsRealtime(OneSecond);
-			_collider = GetComponent<SphereCollider>();
-			_currentTime = _totalTime;
-			_timerSlider.maxValue = _totalTime;
-			_timerSlider.value = _totalTime;
-
-			_scaler.ScaleChanged += HandleScaleChanged;
-			_dieHandler.Died += HandleDeath;
-			_deathCountdownCoroutine ??= StartCoroutine(DeathCountdown());
-		}
-
 		private void FixedUpdate()
 		{
 			if (_collider.radius <= MinColliderRadiusValue)
@@ -53,6 +40,19 @@ namespace GameLogic.CharacterLogic.Timers
 			StopDeathCountdown();
 			_scaler.ScaleChanged -= HandleScaleChanged;
 			_dieHandler.Died -= HandleDeath;
+		}
+
+		public void Initialize()
+		{
+			_waitForSeconds = new WaitForSecondsRealtime(OneSecond);
+			_collider = GetComponent<SphereCollider>();
+			_currentTime = _totalTime;
+			_timerSlider.maxValue = _totalTime;
+			_timerSlider.value = _totalTime;
+
+			_scaler.ScaleChanged += HandleScaleChanged;
+			_dieHandler.Died += HandleDeath;
+			_deathCountdownCoroutine ??= StartCoroutine(DeathCountdown());
 		}
 
 		public void Interact()

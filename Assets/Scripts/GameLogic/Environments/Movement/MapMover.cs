@@ -26,7 +26,7 @@ namespace GameLogic.Environments.Movement
 		{
 			_gameFactory = AllServices.Container.Single<IGameFactory>();
 
-			if (_gameFactory.CharacterGameObject is null)
+			if (CheckInstantiateCharacter())
 			{
 				_gameFactory.CharacterCreated += OnCharacterCreated;
 			}
@@ -85,6 +85,9 @@ namespace GameLogic.Environments.Movement
 
 		private void InitializeHeroTransform() =>
 			_characterTransform = _gameFactory.CharacterGameObject.transform;
+
+		private bool CheckInstantiateCharacter() =>
+			_gameFactory.CharacterGameObject is null;
 
 		private void ShiftTiles(Direction direction)
 		{
