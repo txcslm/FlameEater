@@ -31,7 +31,7 @@ namespace StateMachine
 
 		public void Enter()
 		{
-			_loadSceneService.Load(MainMenuSceneName, sceneLoaded: EnterLoadLevel);
+			_loadSceneService.Load(MainMenuSceneName, sceneLoaded: EnterLoadMainMenu);
 		}
 
 		public void Exit()
@@ -39,8 +39,8 @@ namespace StateMachine
 			
 		}
 
-		private void EnterLoadLevel() =>
-			_stateMachine.Enter<LoadProgressState>();
+		private void EnterLoadMainMenu() =>
+			_stateMachine.Enter<LoadMainMenuState>();
 
 		private void RegisterServices()
 		{

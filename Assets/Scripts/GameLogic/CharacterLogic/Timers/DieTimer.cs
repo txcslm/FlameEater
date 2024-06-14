@@ -1,38 +1,42 @@
 using System;
 using System.Collections;
+using Factories.Interfaces;
 using UnityEngine;
 using UnityEngine.UI;
 using GameLogic.CharacterLogic.Colliding;
 using GameLogic.CharacterLogic.Handlers;
 using GameLogic.Interfaces;
+using Services;
+using UI;
 
 namespace GameLogic.CharacterLogic.Timers
 {
 	[RequireComponent(typeof(SphereCollider))]
 	public class DieTimer : MonoBehaviour, IInteractable
 	{
-		private const float MinColliderRadiusValue = 0.5f;
+		private const float MinColliderRadiusValue = 1f;
 		private const float MaxColliderRadiusValue = 12f;
-		private const float OneSecond = 1f;
+		private const float NormalColliderRadiusValue = 2f;
 
 		[SerializeField] private Scaler _scaler;
 		[SerializeField] private DieHandler _dieHandler;
 		[SerializeField] private Transform _view;
 
-		[Header("Timer Settings")] 
-		[SerializeField] private Slider _timerSlider;
+		[Header("Timer Settings")]
 		[SerializeField] private float _totalTime = 10f;
 		[SerializeField] private float _timeIncrement = 5f;
 
 		private float _currentTime;
 		private Coroutine _deathCountdownCoroutine;
 		private SphereCollider _collider;
-		private WaitForSecondsRealtime _waitForSeconds;
+		private WaitForSeconds _waitForSeconds;
+		private SliderHandler _timerSlider;
+		private IGameFactory _factory;
 
 		private void FixedUpdate()
 		{
 			if (_collider.radius <= MinColliderRadiusValue)
-				_collider.radius = 1f;
+				_collider.radius = NormalColliderRadiusValue;
 		}
 
 		private void OnDestroy()
@@ -40,36 +44,50 @@ namespace GameLogic.CharacterLogic.Timers
 			StopDeathCountdown();
 			_scaler.ScaleChanged -= HandleScaleChanged;
 			_dieHandler.Died -= HandleDeath;
+			_factory.UICreated -= OnUICreated;
 		}
 
 		public void Initialize()
 		{
-			_waitForSeconds = new WaitForSecondsRealtime(OneSecond);
+			_factory = AllServices.Container.Single<IGameFactory>();
+			_waitForSeconds = new WaitForSeconds(Time.deltaTime);
 			_collider = GetComponent<SphereCollider>();
 			_currentTime = _totalTime;
-			_timerSlider.maxValue = _totalTime;
-			_timerSlider.value = _totalTime;
+			
+			if(_factory.UIGameObject is null)
+				_factory.UICreated += OnUICreated;
+			else
+				InitializeTimerSlider();
+			
+			_timerSlider.MaxValue = _totalTime;
+			_timerSlider.Value = _totalTime;
 
 			_scaler.ScaleChanged += HandleScaleChanged;
 			_dieHandler.Died += HandleDeath;
 			_deathCountdownCoroutine ??= StartCoroutine(DeathCountdown());
 		}
 
-		public void Interact()
-		{
+		public void Interact() =>
 			AddTime(_timeIncrement);
-		}
 
 		private void HandleScaleChanged(float scaleValue)
 		{
+			const float scaleFactor = 3f;
+			
 			if (_scaler is null)
 				throw new ArgumentNullException(nameof(_scaler));
 
-			_collider.radius += scaleValue;
+			_collider.radius += scaleValue / scaleFactor;
 
 			if (_collider.radius > MaxColliderRadiusValue)
 				_collider.radius = MaxColliderRadiusValue;
 		}
+
+		private void OnUICreated() =>
+			InitializeTimerSlider();
+
+		private void InitializeTimerSlider() =>
+			_timerSlider = _factory.UIGameObject.GetComponentInChildren<SliderHandler>();
 
 		private IEnumerator DeathCountdown()
 		{
@@ -78,8 +96,8 @@ namespace GameLogic.CharacterLogic.Timers
 
 			while (_currentTime > 0)
 			{
-				_currentTime -= OneSecond;
-				_timerSlider.value = _currentTime;
+				_currentTime -= Time.deltaTime;
+				_timerSlider.Value = _currentTime;
 
 				float currentScale = _view.localScale.x;
 				float targetScale = _currentTime / initialTime * initialScale;
@@ -100,10 +118,8 @@ namespace GameLogic.CharacterLogic.Timers
 			StopDeathCountdown();
 		}
 
-		private void HandleDeath()
-		{
+		private void HandleDeath() =>
 			StopDeathCountdown();
-		}
 
 		private void AddTime(float time)
 		{
@@ -112,7 +128,7 @@ namespace GameLogic.CharacterLogic.Timers
 			if (_currentTime > _totalTime)
 				_currentTime = _totalTime;
 
-			_timerSlider.value = _currentTime;
+			_timerSlider.Value = _currentTime;
 		}
 
 		private void StopDeathCountdown()

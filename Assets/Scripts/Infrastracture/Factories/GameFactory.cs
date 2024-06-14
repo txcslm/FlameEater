@@ -13,11 +13,15 @@ namespace Factories
 		private readonly IAssetProvider _assetProvider;
 
 		public List<ISavedProgressReader> ProgressReaders { get; } = new List<ISavedProgressReader>();
+
 		public List<ISavedProgress> ProgressWriters { get; } = new List<ISavedProgress>();
 
 		public GameObject CharacterGameObject { get; private set; }
 
+		public GameObject UIGameObject { get; private set; }
+
 		public event Action CharacterCreated;
+		public event Action UICreated;
 
 		public GameFactory(IAssetProvider assetProvider)
 		{
@@ -26,15 +30,27 @@ namespace Factories
 
 		public GameObject CreateCharacter(GameObject at)
 		{
-			CharacterGameObject= InstantiateRegistered(AssetPath.PlayerPath, at.transform.position);
-			
+			CharacterGameObject = InstantiateRegistered(AssetPath.PlayerPath, at.transform.position);
+
 			CharacterCreated?.Invoke();
-			
+
 			return CharacterGameObject;
 		}
 
 		public void CreateHud() =>
 			InstantiateRegistered(AssetPath.HudPath);
+
+		public GameObject CreateMenu() =>
+			InstantiateRegistered(AssetPath.MainMenuPath);
+
+		public GameObject CreateUI()
+		{
+			UIGameObject = InstantiateRegistered(AssetPath.UIPath);
+			
+			UICreated?.Invoke();
+			
+			return UIGameObject;
+		}
 
 		public void CleanUp()
 		{
@@ -64,9 +80,9 @@ namespace Factories
 
 		private void Register(ISavedProgressReader progressReader)
 		{
-			if(progressReader is ISavedProgress progressWriter)
+			if (progressReader is ISavedProgress progressWriter)
 				ProgressWriters.Add(progressWriter);
-			
+
 			ProgressReaders.Add(progressReader);
 		}
 	}

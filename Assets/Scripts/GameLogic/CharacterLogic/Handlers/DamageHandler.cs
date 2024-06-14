@@ -8,7 +8,7 @@ namespace GameLogic.CharacterLogic.Handlers
 	[RequireComponent(typeof(BoxCollider))] [RequireComponent(typeof(Rigidbody))]
 	public class DamageHandler : MonoBehaviour
 	{
-		private const float Damage = 1.5f;
+		private const float Damage = 2f;
 		private const float DamageInterval = 0.5f; 
 		
 		private readonly WaitForSeconds _waitForSeconds = new WaitForSeconds(DamageInterval);

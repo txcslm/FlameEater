@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Const.AssetManagement;
 using Factories.Interfaces;
 using GameLogic.Environments.Movement;
 using Services;
@@ -8,6 +9,7 @@ using Services.LoadLevels.Interfaces;
 using Services.SaveLoad;
 using StateMachine.Interfaces;
 using UI;
+using UI.Menu;
 using UnityEngine;
 
 namespace StateMachine
@@ -26,6 +28,7 @@ namespace StateMachine
 				[typeof(LoadLevelState)] = new LoadLevelState(this, loadSceneService, curtain, services.Single<IGameFactory>(), services.Single<IPersistentProgressService>()),
 				[typeof(GameLoopState)] = new GameLoopState(this),
 				[typeof(LoadProgressState)] = new LoadProgressState(this, services.Single<IPersistentProgressService>(), services.Single<ISaveLoadService>()),
+				[typeof(LoadMainMenuState)] = new LoadMainMenuState(this, curtain,  services.Single<IGameFactory>()),
 			};
 		}
 		public void Enter<TState>() where TState : class, IState
@@ -47,7 +50,7 @@ namespace StateMachine
 
 			TState state = GetState<TState>();
 			_currentState = state;
-			Debug.Log($"Enter in {nameof(TState)}");
+			Debug.Log($"Enter in {typeof(TState)}");
 
 			return state;
 		}

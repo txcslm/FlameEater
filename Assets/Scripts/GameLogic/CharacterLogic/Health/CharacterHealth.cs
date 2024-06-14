@@ -12,32 +12,43 @@ namespace GameLogic.CharacterLogic.Health
 	{
 		[SerializeField] private Scaler _scaler;
 		[SerializeField] private Steam _steam;
-		
+
 		private State _state;
 
-		public float Current 
-		{ 
-			get => _state.CurrentHealth; 
-			set => _state.CurrentHealth = value; 
+		public event Action HealthChanged;
+
+		public float Current
+		{
+			get => _state.CurrentHealth;
+
+			set
+			{
+				if (Math.Abs(_state.CurrentHealth - value) < 0.01f)
+					return;
+				_state.CurrentHealth = value;
+				HealthChanged?.Invoke();
+			}
 		}
 
 		public float Max
 		{
 			get => _state.MaxHealth;
+
 			set => _state.MaxHealth = value;
 		}
 
 		public void LoadProgress(PlayerProgress progress)
 		{
 			_state = progress.CharacterState;
+			HealthChanged?.Invoke();
 		}
 
 		public void UpdateProgress(PlayerProgress progress)
 		{
 			progress.CharacterState.CurrentHealth = Current;
 			progress.CharacterState.MaxHealth = Max;
-
 		}
+
 		public void TakeDamage(float damage)
 		{
 			const float damageMultiplier = 2.0f;

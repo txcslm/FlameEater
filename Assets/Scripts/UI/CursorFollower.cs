@@ -4,16 +4,18 @@ namespace UI
 {
 	public class CursorFollower : MonoBehaviour
 	{
-		[SerializeField] private Camera _mainCamera;
-
 		private void Update() =>
 			FollowMouse();
 
 		private void FollowMouse()
 		{
 			Vector3 mousePosition = Input.mousePosition;
-			mousePosition.z = -_mainCamera.transform.position.z;
-			Vector3 worldMousePosition = _mainCamera.ScreenToWorldPoint(mousePosition);
+			
+			if (Camera.main == null)
+				return;
+			
+			mousePosition.z = -Camera.main.transform.position.z;
+			Vector3 worldMousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
 			transform.position = worldMousePosition;
 		}
 	}

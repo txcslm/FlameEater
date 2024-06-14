@@ -13,14 +13,12 @@ namespace Bootstraps
 	{
 		[SerializeField] private BendingService _bendingService;
 		[SerializeField] private SpawnerInitializer _spawnerInitializer;
-		[SerializeField] private ScoreView _scoreView;
-		[SerializeField] private DeathScreen _deathScreen;
 		
 		private Level _level;
 
 		private void Awake()
 		{
-			_level = new Level(_bendingService, _spawnerInitializer, _scoreView, _deathScreen);
+			_level = new Level(_bendingService, _spawnerInitializer);
 			_level.Start();
 		}
 	}

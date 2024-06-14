@@ -12,8 +12,8 @@ namespace GameLogic.CharacterLogic
 
 		private void Awake()
 		{
-			_dieHandler.Initialize();
 			_dieTimer.Initialize();
+			_dieHandler.Initialize();
 		}
 	}
 }

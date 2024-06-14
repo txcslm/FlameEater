@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -11,10 +12,12 @@ namespace UI
 		[SerializeField] private int _sceneIndex;
 
 		private int _currentSceneIndex;
+		private Canvas _canvas;
 
 		public void Initialize()
 		{
-			GetComponent<Image>();
+			_canvas = gameObject.GetComponent<Canvas>();
+			_canvas.enabled = false;
 			_currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
 		}
 
@@ -25,7 +28,7 @@ namespace UI
 		}
 
 		public void Show() =>
-			gameObject.SetActive(true);
+			_canvas.enabled = true;
 
 		private void OnDisable()
 		{

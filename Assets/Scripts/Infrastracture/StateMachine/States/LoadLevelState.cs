@@ -52,8 +52,8 @@ namespace StateMachine
 
 		private void InitGameWorld()
 		{
+			_factory.CreateUI();
 			_factory.CreateCharacter(at: GameObject.FindWithTag(InitialPointTag));
-
 			_factory.CreateHud();
 		}
 	}

@@ -55,7 +55,7 @@ namespace GameLogic.CharacterLogic.Colliding
 
 		public void ScaleCollider(float scaleValue)
 		{
-			const float scalingFactor = 3f;
+			const float scalingFactor = 2f;
 
 			if (_collider is null)
 				throw new ArgumentNullException(nameof(_collider));
