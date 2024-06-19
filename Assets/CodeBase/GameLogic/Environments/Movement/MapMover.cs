@@ -16,7 +16,6 @@ namespace CodeBase.GameLogic.Environments.Movement
 
 		private event Action<Direction> PlayerMovedDistance;
 
-		
 		private Transform _characterTransform;
 		private Transform[,] _tileGrid;
 		private Vector3 _lastCharacterPosition;
