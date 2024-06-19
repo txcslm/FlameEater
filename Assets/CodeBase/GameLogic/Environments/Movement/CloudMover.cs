@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace GameLogic.Environments.Movement
+namespace CodeBase.GameLogic.Environments.Movement
 {
 	public class CloudMover : MonoBehaviour
 	{

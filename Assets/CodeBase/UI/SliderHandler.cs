@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace UI
+namespace CodeBase.UI
 {
 	public class SliderHandler : MonoBehaviour
 	{

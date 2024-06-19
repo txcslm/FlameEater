@@ -1,14 +1,9 @@
-using System;
-using BehaviorDesigner.Runtime.Tasks.Unity.UnityGameObject;
-using Factories.Interfaces;
-using Services.LoadLevels.Interfaces;
-using StateMachine.Interfaces;
-using UI;
-using UnityEngine.SceneManagement;
-using UnityEngine;
-using Object = UnityEngine.Object;
+using CodeBase.Infrastracture.Factories.Interfaces;
+using CodeBase.Infrastracture.Services.LoadLevels.Interfaces;
+using CodeBase.Infrastracture.StateMachine.Interfaces;
+using CodeBase.UI;
 
-namespace StateMachine
+namespace CodeBase.Infrastracture.StateMachine.States
 {
 	public class GameLoopState : IState
 	{

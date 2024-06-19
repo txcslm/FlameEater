@@ -1,6 +1,6 @@
-using Services.Interfaces;
+using CodeBase.Infrastracture.Services.Interfaces;
 
-namespace Services
+namespace CodeBase.Infrastracture.Services
 {
 	public class AllServices
 	{

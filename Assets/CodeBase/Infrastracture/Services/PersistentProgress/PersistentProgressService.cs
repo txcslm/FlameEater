@@ -1,7 +1,7 @@
-using Data;
-using Services.Interfaces;
+using CodeBase.Data;
+using CodeBase.Infrastracture.Services.Interfaces;
 
-namespace Services.PersistentProgress
+namespace CodeBase.Infrastracture.Services.PersistentProgress
 {
 	public class PersistentProgressService : IPersistentProgressService
 	{

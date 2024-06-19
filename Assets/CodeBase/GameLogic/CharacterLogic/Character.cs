@@ -1,9 +1,8 @@
-using GameLogic.CharacterLogic.Handlers;
-using GameLogic.CharacterLogic.Timers;
-using UI;
+using CodeBase.GameLogic.CharacterLogic.Handlers;
+using CodeBase.GameLogic.CharacterLogic.Timers;
 using UnityEngine;
 
-namespace GameLogic.CharacterLogic
+namespace CodeBase.GameLogic.CharacterLogic
 {
 	public class Character : MonoBehaviour
 	{

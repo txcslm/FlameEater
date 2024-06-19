@@ -1,9 +1,7 @@
-using System;
-using Cinemachine;
 using DG.Tweening;
 using UnityEngine;
 
-namespace GameLogic.CharacterLogic.Animation
+namespace CodeBase.GameLogic.CharacterLogic.Animation
 {
 	public class DeathAnimator : MonoBehaviour
 	{

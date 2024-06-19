@@ -1,10 +1,11 @@
-using Data;
-using Services;
-using Services.Interfaces;
+using CodeBase.Const;
+using CodeBase.Data;
+using CodeBase.Infrastracture.Services;
+using CodeBase.Infrastracture.Services.Interfaces;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace GameLogic.CharacterLogic.Movement
+namespace CodeBase.GameLogic.CharacterLogic.Movement
 {
 	[RequireComponent(typeof(CharacterController))]
 	public class CharacterMovement : MonoBehaviour, ISavedProgress

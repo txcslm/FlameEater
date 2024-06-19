@@ -1,12 +1,12 @@
 using System;
 using System.Collections.Generic;
-using AssetManagement;
-using Const.AssetManagement;
-using Factories.Interfaces;
-using Services.Interfaces;
+using CodeBase.Const.AssetManagement;
+using CodeBase.Infrastracture.AssetManagement;
+using CodeBase.Infrastracture.Factories.Interfaces;
+using CodeBase.Infrastracture.Services.Interfaces;
 using UnityEngine;
 
-namespace Factories
+namespace CodeBase.Infrastracture.Factories
 {
 	public class GameFactory : IGameFactory
 	{

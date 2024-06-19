@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
-namespace Shaders
+namespace CodeBase.Shaders
 {
 	public class PixelizeFeature : ScriptableRendererFeature
 	{

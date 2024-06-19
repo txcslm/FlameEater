@@ -1,12 +1,12 @@
 using System;
 using System.Collections.Generic;
-using Constants.Enums;
-using Constants.Enums.Directions;
-using Factories.Interfaces;
-using Services;
+using CodeBase.Const.Enums;
+using CodeBase.Const.Enums.Directions;
+using CodeBase.Infrastracture.Factories.Interfaces;
+using CodeBase.Infrastracture.Services;
 using UnityEngine;
 
-namespace GameLogic.Environments.Movement
+namespace CodeBase.GameLogic.Environments.Movement
 {
 	public class MapMover : MonoBehaviour
 	{
@@ -14,7 +14,7 @@ namespace GameLogic.Environments.Movement
 		[SerializeField] private float _tileSize = 200f;
 		[SerializeField] private Transform[] _tiles;
 
-		private event Action<Direction> OnPlayerMovedDistance;
+		private event Action<Direction> PlayerMovedDistance;
 
 		
 		private Transform _characterTransform;
@@ -40,10 +40,10 @@ namespace GameLogic.Environments.Movement
 		}
 
 		private void OnEnable() =>
-			OnPlayerMovedDistance += ShiftTiles;
+			PlayerMovedDistance += ShiftTiles;
 
 		private void OnDisable() =>
-			OnPlayerMovedDistance -= ShiftTiles;
+			PlayerMovedDistance -= ShiftTiles;
 
 		private void Update()
 		{
@@ -64,30 +64,18 @@ namespace GameLogic.Environments.Movement
 		{
 			if (Mathf.Abs(moveDirection.x) > Mathf.Abs(moveDirection.z))
 			{
-				OnPlayerMovedDistance?.Invoke(moveDirection.x > 0 ? Direction.Right : Direction.Left);
+				PlayerMovedDistance?.Invoke(moveDirection.x > 0 ? Direction.Right : Direction.Left);
 				_lastCharacterPosition = GetLastCharacterPositionX(_characterTransform.position.x, _lastCharacterPosition.y, _lastCharacterPosition.z, _tileSize);
 			}
 			else
 			{
-				OnPlayerMovedDistance?.Invoke(moveDirection.z > 0 ? Direction.Up : Direction.Down);
+				PlayerMovedDistance?.Invoke(moveDirection.z > 0 ? Direction.Up : Direction.Down);
 				_lastCharacterPosition = GetLastCharacterPositionZ(_lastCharacterPosition.x, _lastCharacterPosition.y, _characterTransform.position.z, _tileSize);
 			}
 		}
 
-		private Vector3 GetLastCharacterPositionZ(float x, float y, float z, float tileSize) =>
-			new Vector3(x, y, Mathf.Round(z / tileSize) * tileSize);
-
-		private Vector3 GetLastCharacterPositionX(float x, float y, float z, float tileSize) =>
-			new Vector3(Mathf.Round(x / tileSize) * tileSize, y,z);
-
 		private void OnCharacterCreated() =>
 			InitializeHeroTransform();
-
-		private void InitializeHeroTransform() =>
-			_characterTransform = _gameFactory.CharacterGameObject.transform;
-
-		private bool CheckInstantiateCharacter() =>
-			_gameFactory.CharacterGameObject is null;
 
 		private void ShiftTiles(Direction direction)
 		{
@@ -163,21 +151,27 @@ namespace GameLogic.Environments.Movement
 
         }
 
-		private Transform GetValue(int x, int y, ShiftType shiftType)
-        {
-            return shiftType == ShiftType.Row ? _tileGrid[x, y] : _tileGrid[y, x];
-        }
+		private void InitializeHeroTransform() =>
+			_characterTransform = _gameFactory.CharacterGameObject.transform;
+
+		private bool CheckInstantiateCharacter() =>
+			_gameFactory.CharacterGameObject is null;
+
+		private Vector3 GetLastCharacterPositionX(float x, float y, float z, float tileSize) =>
+			new Vector3(Mathf.Round(x / tileSize) * tileSize, y,z);
+
+		private Vector3 GetLastCharacterPositionZ(float x, float y, float z, float tileSize) =>
+			new Vector3(x, y, Mathf.Round(z / tileSize) * tileSize);
+
+		private Transform GetValue(int x, int y, ShiftType shiftType) =>
+			shiftType == ShiftType.Row ? _tileGrid[x, y] : _tileGrid[y, x];
 
 		private void SetValue(int x, int y, ShiftType shiftType, Transform transformPosition)
         {
             if (shiftType == ShiftType.Row)
-            {
-                _tileGrid[x, y] = transformPosition;
-            }
+	            _tileGrid[x, y] = transformPosition;
             else
-            {
-                _tileGrid[y, x] = transformPosition;
-            }
+	            _tileGrid[y, x] = transformPosition;
         }
 
 		private void CreateArray()

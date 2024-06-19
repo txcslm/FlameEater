@@ -1,15 +1,14 @@
 using System;
 using System.Collections;
-using Factories.Interfaces;
+using CodeBase.GameLogic.CharacterLogic.Colliding;
+using CodeBase.GameLogic.CharacterLogic.Handlers;
+using CodeBase.GameLogic.Interfaces;
+using CodeBase.Infrastracture.Factories.Interfaces;
+using CodeBase.Infrastracture.Services;
+using CodeBase.UI;
 using UnityEngine;
-using UnityEngine.UI;
-using GameLogic.CharacterLogic.Colliding;
-using GameLogic.CharacterLogic.Handlers;
-using GameLogic.Interfaces;
-using Services;
-using UI;
 
-namespace GameLogic.CharacterLogic.Timers
+namespace CodeBase.GameLogic.CharacterLogic.Timers
 {
 	[RequireComponent(typeof(SphereCollider))]
 	public class DieTimer : MonoBehaviour, IInteractable

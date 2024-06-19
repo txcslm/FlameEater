@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
-using GameLogic.Environments.World;
+using CodeBase.GameLogic.Environments.World;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace GameLogic.Spawners
+namespace CodeBase.GameLogic.Spawners
 {
 	public class EnvironmentSpawner : MonoBehaviour
 	{

@@ -1,10 +1,9 @@
-using System;
 using System.Collections;
+using CodeBase.UI.Interfaces;
 using TMPro;
-using UI.Interfaces;
 using UnityEngine;
 
-namespace UI
+namespace CodeBase.UI
 {
 	[RequireComponent(typeof(CanvasGroup))]
 	public class CanvasGroupViewer : MonoBehaviour, IStateViewer

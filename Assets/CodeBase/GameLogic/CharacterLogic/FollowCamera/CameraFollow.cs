@@ -1,10 +1,9 @@
-using System;
 using Cinemachine;
-using Factories.Interfaces;
-using Services;
+using CodeBase.Infrastracture.Factories.Interfaces;
+using CodeBase.Infrastracture.Services;
 using UnityEngine;
 
-namespace GameLogic.CharacterLogic.FollowCamera
+namespace CodeBase.GameLogic.CharacterLogic.FollowCamera
 {
 	[RequireComponent(typeof(CinemachineVirtualCamera))]
 	public class CameraFollow : MonoBehaviour
@@ -27,10 +26,8 @@ namespace GameLogic.CharacterLogic.FollowCamera
 				InitializeHeroTransform();
 		}
 
-		private void OnDisable()
-		{
+		private void OnDestroy() =>
 			_gameFactory.CharacterCreated -= OnCharacterCreated;
-		}
 
 		private void OnCharacterCreated() =>
 			InitializeHeroTransform();

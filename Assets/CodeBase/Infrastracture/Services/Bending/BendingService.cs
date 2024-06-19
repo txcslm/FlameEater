@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.Rendering;
 
-namespace Services.Bending
+namespace CodeBase.Infrastracture.Services.Bending
 {
   [ExecuteAlways]
   [Serializable]

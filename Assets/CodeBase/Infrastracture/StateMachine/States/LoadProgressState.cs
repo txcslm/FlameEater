@@ -1,9 +1,9 @@
-using Data;
-using Services.Interfaces;
-using Services.SaveLoad;
-using StateMachine.Interfaces;
+using CodeBase.Data;
+using CodeBase.Infrastracture.Services.Interfaces;
+using CodeBase.Infrastracture.Services.SaveLoad;
+using CodeBase.Infrastracture.StateMachine.Interfaces;
 
-namespace StateMachine
+namespace CodeBase.Infrastracture.StateMachine.States
 {
 	public class LoadProgressState : IState
 	{

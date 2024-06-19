@@ -1,6 +1,6 @@
-using Data;
+using CodeBase.Data;
 
-namespace Services.Interfaces
+namespace CodeBase.Infrastracture.Services.Interfaces
 {
 	public interface IPersistentProgressService : IService
 	{

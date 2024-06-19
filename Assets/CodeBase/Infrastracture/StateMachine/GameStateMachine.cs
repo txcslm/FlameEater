@@ -1,15 +1,16 @@
 using System;
 using System.Collections.Generic;
-using Factories.Interfaces;
-using Services;
-using Services.Interfaces;
-using Services.LoadLevels.Interfaces;
-using Services.SaveLoad;
-using StateMachine.Interfaces;
-using UI;
+using CodeBase.Infrastracture.Factories.Interfaces;
+using CodeBase.Infrastracture.Services;
+using CodeBase.Infrastracture.Services.Interfaces;
+using CodeBase.Infrastracture.Services.LoadLevels.Interfaces;
+using CodeBase.Infrastracture.Services.SaveLoad;
+using CodeBase.Infrastracture.StateMachine.Interfaces;
+using CodeBase.Infrastracture.StateMachine.States;
+using CodeBase.UI;
 using UnityEngine;
 
-namespace StateMachine
+namespace CodeBase.Infrastracture.StateMachine
 {
 	public class GameStateMachine
 	{

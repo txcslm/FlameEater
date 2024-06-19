@@ -1,4 +1,4 @@
-namespace Constants.Enums
+namespace CodeBase.Const.Enums
 {
 	public enum ShiftType
 	{

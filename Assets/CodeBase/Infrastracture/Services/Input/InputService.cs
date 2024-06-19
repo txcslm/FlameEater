@@ -1,8 +1,8 @@
-using Services.Interfaces;
-using Services.LoadLevels.Interfaces;
+using CodeBase.Const;
+using CodeBase.Infrastracture.Services.Interfaces;
 using UnityEngine;
 
-namespace Services.Input
+namespace CodeBase.Infrastracture.Services.Input
 {
 	public abstract class InputService : IInputService
 	{

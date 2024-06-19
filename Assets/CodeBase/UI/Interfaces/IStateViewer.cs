@@ -1,4 +1,4 @@
-namespace UI.Interfaces
+namespace CodeBase.UI.Interfaces
 {
 	public interface IStateViewer
 	{

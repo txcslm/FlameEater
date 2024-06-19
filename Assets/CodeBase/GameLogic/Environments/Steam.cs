@@ -1,8 +1,7 @@
 using System;
-using GameLogic.AudiSources;
 using UnityEngine;
 
-namespace GameLogic.Environments
+namespace CodeBase.GameLogic.Environments
 {
 	public class Steam : MonoBehaviour
 	{

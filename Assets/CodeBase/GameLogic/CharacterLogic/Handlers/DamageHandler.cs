@@ -1,9 +1,9 @@
 using System.Collections;
-using GameLogic.AudiSources;
-using GameLogic.Interfaces;
+using CodeBase.GameLogic.AudioSources;
+using CodeBase.GameLogic.Interfaces;
 using UnityEngine;
 
-namespace GameLogic.CharacterLogic.Handlers
+namespace CodeBase.GameLogic.CharacterLogic.Handlers
 {
 	[RequireComponent(typeof(BoxCollider))] [RequireComponent(typeof(Rigidbody))]
 	public class DamageHandler : MonoBehaviour

@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
-using Services.Interfaces;
+using CodeBase.Infrastracture.Services.Interfaces;
 using UnityEngine;
 
-namespace Factories.Interfaces
+namespace CodeBase.Infrastracture.Factories.Interfaces
 {
 	public interface IGameFactory : IService
 	{

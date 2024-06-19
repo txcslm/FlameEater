@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using GameLogic.Spawners;
+using CodeBase.GameLogic.Spawners;
 using UnityEngine;
 
-namespace GameLogic.Environments.Initializer
+namespace CodeBase.GameLogic.Environments.Initializer
 {
 	public class SpawnerInitializer : MonoBehaviour
 	{

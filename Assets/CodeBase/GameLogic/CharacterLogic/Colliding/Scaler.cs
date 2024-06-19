@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
-using GameLogic.Interfaces;
+using CodeBase.GameLogic.Interfaces;
 using UnityEngine;
 using Vector3 = UnityEngine.Vector3;
 
-namespace GameLogic.CharacterLogic.Colliding
+namespace CodeBase.GameLogic.CharacterLogic.Colliding
 {
 	public class Scaler : MonoBehaviour, IInteractable
 	{
@@ -12,6 +12,7 @@ namespace GameLogic.CharacterLogic.Colliding
 		private const float MaxColliderRadiusValue = 8.0f;
 		private const float MinColliderRadiusValue = 0.5f;
 		private const float MinScaleZ = 0.5f;
+		private const float ScaleY = 2f;
 
 		[SerializeField] private List<Transform> _particlesTransforms;
 		[SerializeField] private SphereCollider _collider;
@@ -41,16 +42,21 @@ namespace GameLogic.CharacterLogic.Colliding
 
 				if (particleTransform.localScale.z >= MinScaleZ)
 					particleTransform.localScale = new Vector3(Mathf.Lerp(particleTransform.localScale.x, targetScale.x, _scaleTime),
-						2f,
+						ScaleY,
 						Mathf.Lerp(particleTransform.localScale.z, targetScale.z, _scaleTime));
 				else
 					particleTransform.localScale = Vector3.zero;
 
-				if (particleTransform.localScale.x > _maxScale.x)
-					particleTransform.localScale = _maxScale;
+				NormalizeParticleScale(particleTransform);
 			}
 
 			ScaleChanged?.Invoke(scaleValue);
+		}
+
+		private void NormalizeParticleScale(Transform particleTransform)
+		{
+			if (particleTransform.localScale.z > _maxScale.z)
+				particleTransform.localScale = _maxScale;
 		}
 
 		public void ScaleCollider(float scaleValue)

@@ -1,7 +1,7 @@
 using System;
-using GameLogic.CharacterLogic.Handlers;
+using CodeBase.GameLogic.CharacterLogic.Handlers;
 
-namespace UI.Score
+namespace CodeBase.UI.Score
 {
 	public class ScoreHandler
 	{

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace GameLogic.AudiSources
+namespace CodeBase.GameLogic.AudioSources
 {
 	public class PlayerAudioSource : MonoBehaviour
 	{

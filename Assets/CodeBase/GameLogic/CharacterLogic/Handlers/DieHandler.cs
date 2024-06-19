@@ -1,17 +1,16 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Cinemachine;
+using CodeBase.GameLogic.CharacterLogic.Animation;
+using CodeBase.GameLogic.CharacterLogic.Movement;
+using CodeBase.Infrastracture.Factories.Interfaces;
+using CodeBase.Infrastracture.Services;
+using CodeBase.UI;
 using DG.Tweening;
-using Factories.Interfaces;
-using GameLogic.CharacterLogic.Animation;
-using GameLogic.CharacterLogic.Movement;
-using Services;
-using UI;
 using UnityEngine;
 using UnityEngine.Audio;
 
-namespace GameLogic.CharacterLogic.Handlers
+namespace CodeBase.GameLogic.CharacterLogic.Handlers
 {
     public class DieHandler : MonoBehaviour
     {
@@ -21,7 +20,6 @@ namespace GameLogic.CharacterLogic.Handlers
         [Header("Audio Settings")]
         [SerializeField] private AudioSource _audioSource;
         [SerializeField] private List<AudioSource> _audioSources;
-        [SerializeField] private AudioMixer _audioMixer;
 
         [Header("Death Animation")]
         [SerializeField] private DeathAnimator _deathAnimator;

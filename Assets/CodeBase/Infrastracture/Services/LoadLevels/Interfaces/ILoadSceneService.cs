@@ -1,6 +1,6 @@
 using System;
 
-namespace Services.LoadLevels.Interfaces
+namespace CodeBase.Infrastracture.Services.LoadLevels.Interfaces
 {
 	public interface ILoadSceneService
 	{

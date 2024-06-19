@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
-namespace Shaders
+namespace CodeBase.Shaders
 {
     public class PixelizePass : ScriptableRenderPass
     {

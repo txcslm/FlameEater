@@ -1,17 +1,19 @@
-using Services;
-using Services.Interfaces;
-using Services.LoadLevels;
-using StateMachine;
-using UI;
-using Utility;
+using CodeBase.Infrastracture.Services;
+using CodeBase.Infrastracture.Services.LoadLevels;
+using CodeBase.Infrastracture.StateMachine;
+using CodeBase.UI;
+using CodeBase.Utility;
 
-public class Game
+namespace CodeBase.Infrastracture
 {
-	public GameStateMachine StateMachine { get; }
-
-	public Game(ICoroutineRunner coroutineRunner, CanvasGroupViewer curtain)
+	public class Game
 	{
-		StateMachine = new GameStateMachine(new UnityLoadSceneService(coroutineRunner), curtain, AllServices.Container);
+		public GameStateMachine StateMachine { get; }
+
+		public Game(ICoroutineRunner coroutineRunner, CanvasGroupViewer curtain)
+		{
+			StateMachine = new GameStateMachine(new UnityLoadSceneService(coroutineRunner), curtain, AllServices.Container);
 		
+		}
 	}
 }

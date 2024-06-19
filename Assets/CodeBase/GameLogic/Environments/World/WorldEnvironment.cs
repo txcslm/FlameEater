@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace GameLogic.Environments.World
+namespace CodeBase.GameLogic.Environments.World
 {
 	public class WorldEnvironment : MonoBehaviour
 	{

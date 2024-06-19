@@ -1,7 +1,6 @@
 using System;
-using UnityEngine;
 
-namespace Data
+namespace CodeBase.Data
 {
 	[Serializable]
 	public class Vector3Data

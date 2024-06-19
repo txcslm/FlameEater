@@ -1,4 +1,4 @@
-namespace Const.AssetManagement
+namespace CodeBase.Const.AssetManagement
 {
 	public static class AssetPath
 	{

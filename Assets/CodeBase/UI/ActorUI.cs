@@ -1,9 +1,8 @@
-using System;
-using GameLogic.CharacterLogic.Health;
-using GameLogic.CharacterLogic.Timers;
+using CodeBase.GameLogic.CharacterLogic.Health;
+using CodeBase.GameLogic.CharacterLogic.Timers;
 using UnityEngine;
 
-namespace UI
+namespace CodeBase.UI
 {
 	public class ActorUI : MonoBehaviour
 	{

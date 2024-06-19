@@ -1,6 +1,6 @@
-using Services.Interfaces;
+using CodeBase.Infrastracture.Services.Interfaces;
 
-namespace Services.Bending
+namespace CodeBase.Infrastracture.Services.Bending
 {
 	public interface IBendingService: IService
 	{

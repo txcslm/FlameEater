@@ -1,11 +1,11 @@
 using System;
 using System.Collections;
-using Services.LoadLevels.Interfaces;
+using CodeBase.Infrastracture.Services.LoadLevels.Interfaces;
+using CodeBase.Utility;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Utility;
 
-namespace Services.LoadLevels
+namespace CodeBase.Infrastracture.Services.LoadLevels
 {
 	public class  UnityLoadSceneService : ILoadSceneService
 	{

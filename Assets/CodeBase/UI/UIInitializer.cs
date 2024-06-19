@@ -1,7 +1,7 @@
-using UI.Score;
+using CodeBase.UI.Score;
 using UnityEngine;
 
-namespace UI
+namespace CodeBase.UI
 {
 	public class UIInitializer : MonoBehaviour
 	{

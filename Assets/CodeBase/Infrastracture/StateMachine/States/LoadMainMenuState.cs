@@ -1,11 +1,11 @@
-using Factories.Interfaces;
-using Services.LoadLevels.Interfaces;
-using StateMachine.Interfaces;
-using UI;
-using UI.Menu;
+using CodeBase.Infrastracture.Factories.Interfaces;
+using CodeBase.Infrastracture.Services.LoadLevels.Interfaces;
+using CodeBase.Infrastracture.StateMachine.Interfaces;
+using CodeBase.UI;
+using CodeBase.UI.Menu;
 using UnityEngine;
 
-namespace StateMachine
+namespace CodeBase.Infrastracture.StateMachine.States
 {
 	public class LoadMainMenuState : IState
 	{

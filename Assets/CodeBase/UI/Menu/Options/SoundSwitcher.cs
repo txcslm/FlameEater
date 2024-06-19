@@ -1,12 +1,12 @@
-using Data;
-using Services;
-using Services.Interfaces;
-using Services.SaveLoad;
+using CodeBase.Data;
+using CodeBase.Infrastracture.Services;
+using CodeBase.Infrastracture.Services.Interfaces;
+using CodeBase.Infrastracture.Services.SaveLoad;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 
-namespace UI.Menu.Options
+namespace CodeBase.UI.Menu.Options
 {
 	public class SoundSwitcher : MonoBehaviour, ISavedProgress
 	{

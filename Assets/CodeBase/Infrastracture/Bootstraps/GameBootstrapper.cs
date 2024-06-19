@@ -1,9 +1,9 @@
-using StateMachine;
-using UI;
+using CodeBase.Infrastracture.StateMachine.States;
+using CodeBase.UI;
+using CodeBase.Utility;
 using UnityEngine;
-using Utility;
 
-namespace Bootstraps
+namespace CodeBase.Infrastracture.Bootstraps
 {
 	public class GameBootstrapper : MonoBehaviour, ICoroutineRunner
 	{

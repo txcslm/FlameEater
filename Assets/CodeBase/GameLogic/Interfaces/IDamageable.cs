@@ -1,4 +1,4 @@
-namespace GameLogic.Interfaces
+namespace CodeBase.GameLogic.Interfaces
 {
 	public interface IDamageable
 	{

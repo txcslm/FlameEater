@@ -1,4 +1,4 @@
-namespace Constants.Enums.Directions
+namespace CodeBase.Const.Enums.Directions
 {
 	public enum Direction
 	{

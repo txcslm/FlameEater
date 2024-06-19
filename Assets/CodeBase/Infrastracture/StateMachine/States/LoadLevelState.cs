@@ -1,11 +1,11 @@
-using Factories.Interfaces;
-using Services.Interfaces;
-using Services.LoadLevels.Interfaces;
-using StateMachine.Interfaces;
-using UI;
+using CodeBase.Infrastracture.Factories.Interfaces;
+using CodeBase.Infrastracture.Services.Interfaces;
+using CodeBase.Infrastracture.Services.LoadLevels.Interfaces;
+using CodeBase.Infrastracture.StateMachine.Interfaces;
+using CodeBase.UI;
 using UnityEngine;
 
-namespace StateMachine
+namespace CodeBase.Infrastracture.StateMachine.States
 {
 	public class LoadLevelState : IPayloadState<string>
 	{

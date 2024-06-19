@@ -1,9 +1,9 @@
 using System;
-using GameLogic.Interfaces;
+using CodeBase.GameLogic.Interfaces;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace GameLogic.CharacterLogic.Handlers
+namespace CodeBase.GameLogic.CharacterLogic.Handlers
 {
 	public class TriggerHandler : MonoBehaviour, IInteractable
 	{

@@ -1,7 +1,7 @@
-using GameLogic.Interfaces;
+using CodeBase.GameLogic.Interfaces;
 using UnityEngine;
 
-namespace GameLogic.CharacterLogic.Colliding
+namespace CodeBase.GameLogic.CharacterLogic.Colliding
 {
     [RequireComponent(typeof(SphereCollider))][RequireComponent(typeof(Rigidbody))]
     public class TriggerChecker : MonoBehaviour

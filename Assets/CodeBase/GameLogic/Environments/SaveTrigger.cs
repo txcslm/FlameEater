@@ -1,9 +1,8 @@
-using System;
-using Services;
-using Services.SaveLoad;
+using CodeBase.Infrastracture.Services;
+using CodeBase.Infrastracture.Services.SaveLoad;
 using UnityEngine;
 
-namespace GameLogic.Environments
+namespace CodeBase.GameLogic.Environments
 {
 	public class SaveTrigger : MonoBehaviour
 	{

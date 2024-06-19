@@ -1,12 +1,12 @@
 using System;
-using Data;
-using GameLogic.CharacterLogic.Colliding;
-using GameLogic.Environments;
-using GameLogic.Interfaces;
-using Services.Interfaces;
+using CodeBase.Data;
+using CodeBase.GameLogic.CharacterLogic.Colliding;
+using CodeBase.GameLogic.Environments;
+using CodeBase.GameLogic.Interfaces;
+using CodeBase.Infrastracture.Services.Interfaces;
 using UnityEngine;
 
-namespace GameLogic.CharacterLogic.Health
+namespace CodeBase.GameLogic.CharacterLogic.Health
 {
 	public class CharacterHealth : MonoBehaviour, ISavedProgress, IDamageable
 	{

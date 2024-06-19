@@ -1,9 +1,8 @@
-using System;
-using Services;
-using Services.Bending;
+using CodeBase.Infrastracture.Services;
+using CodeBase.Infrastracture.Services.Bending;
 using UnityEngine;
 
-namespace Shaders
+namespace CodeBase.Shaders
 {
 	public class BendingHandler : MonoBehaviour
 	{

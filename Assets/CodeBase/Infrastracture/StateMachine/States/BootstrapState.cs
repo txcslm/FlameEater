@@ -1,18 +1,17 @@
-using AssetManagement;
-using Factories;
-using Factories.Interfaces;
-using Services;
-using Services.Bending;
-using Services.Input;
-using Services.Interfaces;
-using Services.LoadLevels.Interfaces;
-using Services.PersistentProgress;
-using Services.SaveLoad;
-using Shaders;
-using StateMachine.Interfaces;
+using CodeBase.Infrastracture.AssetManagement;
+using CodeBase.Infrastracture.Factories;
+using CodeBase.Infrastracture.Factories.Interfaces;
+using CodeBase.Infrastracture.Services;
+using CodeBase.Infrastracture.Services.Bending;
+using CodeBase.Infrastracture.Services.Input;
+using CodeBase.Infrastracture.Services.Interfaces;
+using CodeBase.Infrastracture.Services.LoadLevels.Interfaces;
+using CodeBase.Infrastracture.Services.PersistentProgress;
+using CodeBase.Infrastracture.Services.SaveLoad;
+using CodeBase.Infrastracture.StateMachine.Interfaces;
 using UnityEngine;
 
-namespace StateMachine
+namespace CodeBase.Infrastracture.StateMachine.States
 {
 	public class BootstrapState : IState
 	{

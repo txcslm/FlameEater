@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace UI
+namespace CodeBase.UI
 {
 	public class CursorFollower : MonoBehaviour
 	{
