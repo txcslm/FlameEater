@@ -62,11 +62,15 @@ Material:
     - ENABLE_BENDING: 0
     - ENABLE_BENDING_PLANET: 0
     - _Alpha: 0.679
+    - _AmbienOcclusion: 0
     - _CurveStrength: 0.008
+    - _Metallic: 0
     - _PLANET: 1
     - _QueueControl: 0
     - _QueueOffset: 0
+    - _Smoothness: 0
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Emission: {r: 0, g: 0, b: 0, a: 0}
     - _Tiling: {r: 1, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []

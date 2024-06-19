@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - InitialPoint
+  - BigMapInitialPoint
   layers:
   - Default
   - TransparentFX
@@ -14,7 +15,7 @@ TagManager:
   - UI
   - Building
   - Tree
-  - Cloud
+  - DamageZone
   - DieTimer
   - SaveTrigger
   - 

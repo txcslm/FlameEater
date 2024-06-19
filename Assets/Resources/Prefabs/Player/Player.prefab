@@ -9720,13 +9720,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _viewTransform: {fileID: 1073091433767076585}
-  _deathScreen: {fileID: 0}
   _characterMovement: {fileID: 8821228118118989432}
   _audioSource: {fileID: 1491382099167628121}
   _audioSources:
   - {fileID: 3663161364186814795}
+  - {fileID: 5922548152736261456}
+  _audioMixer: {fileID: 24100000, guid: 3567bd9d305d0fa43a039df16830ba32, type: 2}
   _deathAnimator: {fileID: 5764549808751674731}
-  _dieTime: 1
+  _dieTime: 0.5
 --- !u!82 &1491382099167628121
 AudioSource:
   m_ObjectHideFlags: 0
@@ -9736,16 +9737,16 @@ AudioSource:
   m_GameObject: {fileID: 2073349671318948793}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 24300002, guid: cedb350d1155ae549ac4153be6493324, type: 2}
+  OutputAudioMixerGroup: {fileID: 2277419999518690339, guid: 3567bd9d305d0fa43a039df16830ba32, type: 2}
   m_audioClip: {fileID: 8300000, guid: 44977f6818120f94d8edd7e9e3926c7c, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.209
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 0
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -10000,7 +10001,7 @@ AudioSource:
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 100
-  DopplerLevel: 1
+  DopplerLevel: 0
   MinDistance: 1
   MaxDistance: 500
   Pan2D: 0
@@ -10037,7 +10038,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0.2
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -10067,7 +10068,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -19992,7 +19993,6 @@ MonoBehaviour:
   _scaler: {fileID: 1035001040891318440}
   _dieHandler: {fileID: 5499606808992330545}
   _view: {fileID: 1073091433767076585}
-  _timerSlider: {fileID: 0}
   _totalTime: 10
   _timeIncrement: 5
 --- !u!135 &4187072276470629069
@@ -25123,6 +25123,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 290152488117003982}
     m_Modifications:
+    - target: {fileID: 3630983130738417110, guid: e91fa0fac941e714e8c4d5709097019f, type: 3}
+      propertyPath: m_Volume
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 3630983130738417110, guid: e91fa0fac941e714e8c4d5709097019f, type: 3}
+      propertyPath: DopplerLevel
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3630983130738417110, guid: e91fa0fac941e714e8c4d5709097019f, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 7644191839497848586, guid: 3567bd9d305d0fa43a039df16830ba32, type: 2}
+    - target: {fileID: 3630983130738417110, guid: e91fa0fac941e714e8c4d5709097019f, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3630983130738417110, guid: e91fa0fac941e714e8c4d5709097019f, type: 3}
+      propertyPath: reverbZoneMixCustomCurve.m_Curve.Array.data[0].value
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8829451551789304537, guid: e91fa0fac941e714e8c4d5709097019f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -25200,6 +25220,11 @@ Transform:
 --- !u!4 &3942441987510177150 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6261296338349454840, guid: e91fa0fac941e714e8c4d5709097019f, type: 3}
+  m_PrefabInstance: {fileID: 6940831806864554118}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &5922548152736261456 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 3630983130738417110, guid: e91fa0fac941e714e8c4d5709097019f, type: 3}
   m_PrefabInstance: {fileID: 6940831806864554118}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &6474717144229965469 stripped
