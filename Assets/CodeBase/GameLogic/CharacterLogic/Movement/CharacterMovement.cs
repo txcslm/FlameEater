@@ -1,7 +1,7 @@
 using CodeBase.Const;
 using CodeBase.Data;
-using CodeBase.Infrastracture.Services;
-using CodeBase.Infrastracture.Services.Interfaces;
+using CodeBase.Infrastructure.Services;
+using CodeBase.Infrastructure.Services.Interfaces;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 

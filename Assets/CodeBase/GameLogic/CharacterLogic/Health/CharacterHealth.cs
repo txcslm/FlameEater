@@ -3,7 +3,7 @@ using CodeBase.Data;
 using CodeBase.GameLogic.CharacterLogic.Colliding;
 using CodeBase.GameLogic.Environments;
 using CodeBase.GameLogic.Interfaces;
-using CodeBase.Infrastracture.Services.Interfaces;
+using CodeBase.Infrastructure.Services.Interfaces;
 using UnityEngine;
 
 namespace CodeBase.GameLogic.CharacterLogic.Health

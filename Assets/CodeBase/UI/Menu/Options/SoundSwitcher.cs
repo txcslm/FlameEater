@@ -1,7 +1,7 @@
 using CodeBase.Data;
-using CodeBase.Infrastracture.Services;
-using CodeBase.Infrastracture.Services.Interfaces;
-using CodeBase.Infrastracture.Services.SaveLoad;
+using CodeBase.Infrastructure.Services;
+using CodeBase.Infrastructure.Services.Interfaces;
+using CodeBase.Infrastructure.Services.SaveLoad;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;

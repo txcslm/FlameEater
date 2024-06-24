@@ -2,8 +2,8 @@ using System;
 using System.Collections.Generic;
 using CodeBase.Const.Enums;
 using CodeBase.Const.Enums.Directions;
-using CodeBase.Infrastracture.Factories.Interfaces;
-using CodeBase.Infrastracture.Services;
+using CodeBase.Infrastructure.Factories.Interfaces;
+using CodeBase.Infrastructure.Services;
 using UnityEngine;
 
 namespace CodeBase.GameLogic.Environments.Movement

@@ -3,8 +3,8 @@ using System.Collections;
 using CodeBase.GameLogic.CharacterLogic.Colliding;
 using CodeBase.GameLogic.CharacterLogic.Handlers;
 using CodeBase.GameLogic.Interfaces;
-using CodeBase.Infrastracture.Factories.Interfaces;
-using CodeBase.Infrastracture.Services;
+using CodeBase.Infrastructure.Factories.Interfaces;
+using CodeBase.Infrastructure.Services;
 using CodeBase.UI;
 using UnityEngine;
 

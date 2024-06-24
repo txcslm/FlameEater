@@ -1,5 +1,5 @@
-using CodeBase.Infrastracture.Services;
-using CodeBase.Infrastracture.Services.Bending;
+using CodeBase.Infrastructure.Services;
+using CodeBase.Infrastructure.Services.Bending;
 using UnityEngine;
 
 namespace CodeBase.Shaders

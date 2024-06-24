@@ -1,5 +1,5 @@
-using CodeBase.Infrastracture.Services;
-using CodeBase.Infrastracture.Services.SaveLoad;
+using CodeBase.Infrastructure.Services;
+using CodeBase.Infrastructure.Services.SaveLoad;
 using UnityEngine;
 
 namespace CodeBase.GameLogic.Environments

@@ -1,6 +1,6 @@
 using Cinemachine;
-using CodeBase.Infrastracture.Factories.Interfaces;
-using CodeBase.Infrastracture.Services;
+using CodeBase.Infrastructure.Factories.Interfaces;
+using CodeBase.Infrastructure.Services;
 using UnityEngine;
 
 namespace CodeBase.GameLogic.CharacterLogic.FollowCamera
